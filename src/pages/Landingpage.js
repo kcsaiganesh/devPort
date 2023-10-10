@@ -3,7 +3,7 @@ import SplitType from 'split-type'
 import { useEffect } from 'react';
 import { motion } from "framer-motion";
 import { animate, stagger } from 'motion';
-import { BiLogoReact, BiLogoGithub, BiLogoNodejs, BiLogoMongodb } from 'react-icons/bi'
+import { BiLogoReact, BiLogoGithub, BiLogoNodejs, BiLogoMongodb, BiLogoTailwindCss } from 'react-icons/bi'
 
 const Landingpage = () => {
     useEffect(() => {
@@ -54,7 +54,7 @@ const Landingpage = () => {
 
             </div>
             <h2 className="font-extrabold text-5xl flex  underline underline-offset-8  left-0 text-blue-950 m-8 ">Personal information</h2>
-            <div className=" justify-items-center">
+            <div className=" justify-items-center ">
                 <div class=" flex item-strech card rounded-xl ml-7  backdrop-blue-sm  drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white bg-white/30  w-11/12 text-left justify-between ">
                     <table className="table-auto border-collapse text-xl ml-12 ">
                         <tbody>
@@ -92,9 +92,9 @@ const Landingpage = () => {
 
 
             </div>
-            <div>
+            <div className=''>
                 <h2 className="font-extrabold text-5xl flex ml-12 underline underline-offset-8 mt-3 text-blue-950 ">Skill-Set</h2>
-                <div className="flex flex-row justify-around items-center m-12  content-evenly" >
+                <div className="flex flex-row justify-around items-center mt-12  content-evenly" >
                     <div class=" card rounded-lg pb-8 backdrop-blue-sm  justify-center  drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white bg-white/30  w-64 mb-6 ">
                         <BiLogoReact id='react' className="h-24 w-24  " />
                         <h3 className="font-bold text-2xl mb-2 text-primary">React</h3>
@@ -114,10 +114,17 @@ const Landingpage = () => {
                         <p className="text-secondary">MongoDB is a NoSQL database that is document-oriented and JavaScript-based. It is scalable and cloud-native.</p>
 
                     </div>
+
                     <div class="card rounded-lg pb-8 backdrop-blue-sm  justify-center drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white  bg-white/30  w-64 mb-6 ">
                         <BiLogoNodejs className="h-24 w-24  " /><h3 className="font-bold text-2xl mb-2 text-primary">Node</h3>
 
                         <p className="text-secondary"> Node.js is a JavaScript runtime environment that is cross-platform, event-driven, scalable, asynchronous, and performant.</p>
+
+                    </div>
+                    <div class="card rounded-lg pb-8 backdrop-blue-sm  justify-center drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white  bg-white/30  w-64 mb-6 ">
+                        <BiLogoTailwindCss className="h-24 w-24  " /><h3 className="font-bold text-2xl mb-2 text-primary">Tailwind css</h3>
+
+                        <p className="text-secondary"> Tailwind CSS is highly customizable and makes development and responsiveness easy.</p>
 
                     </div>
                 </div>
