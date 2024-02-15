@@ -47,7 +47,7 @@ const Landingpage = () => {
                         ease: [0, 0.71, 0.2, 1.01]
                     }} className="order-last self-center mr-64 mt-24 relative  z-0 ">
 
-                    <img alt="imgprofile" src='https://media.licdn.com/dms/image/D5603AQGV_OOjSkyI8g/profile-displayphoto-shrink_400_400/0/1693809116653?e=1702512000&v=beta&t=T4S7zoj2ToBi0ucb6tOOEoToOXXsDqJ10aFI8SVDFAc' className="w-80 h-80 shadow-2xl  shadow-sky-50/30 rounded-full border-spacing-1 border-2 fill-white ">
+                    <img alt="imgprofile" src='https://avatars.githubusercontent.com/u/75118214?v=4' className="w-80 h-80 shadow-2xl  shadow-sky-50/30 rounded-full border-spacing-1 border-2 fill-white ">
 
                     </img>
                 </motion.div>
