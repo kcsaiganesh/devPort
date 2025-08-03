@@ -1,43 +1,145 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { FaHome, FaBriefcase, FaEnvelope, FaFileAlt, FaBars, FaTimes } from 'react-icons/fa'
+import DarkModeToggle from './DarkModeToggle'
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 10;
+            setScrolled(isScrolled);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navItems = [
+        { href: '/', label: 'Home', icon: FaHome },
+        { href: '/projects', label: 'Projects', icon: FaBriefcase },
+        { href: '/resume', label: 'Resume', icon: FaFileAlt },
+        { href: '/contact', label: 'Contact', icon: FaEnvelope },
+    ];
 
     return (
-        <div className="relative z-10">
-            <div className="   fixed top-0 left-0 right-0 ">
-                <div className="backdrop-filter-blur border-b backdrop-blur-sm " >
-                    <div className="max-w-5xl mx-auto px-4 ">
-                        <div className="flex items-center justify-between h-16">
-                            <span className="text-2xl text-white font-bold">SG</span>
-                            <div className="flex space-x-10 ">
-
-                                <a href="/" className="text-secondary  hover:text-primary  tracking-widest antialiased font-semibold flex "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-
-                                </svg>
-                                    Home</a>
-                                <a href="/projects" className="text-secondary  hover:text-primary  tracking-widest antialiased font-semibold flex "> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
-                                </svg>
-                                    Projects</a>
-                                <a href="/contact" className="text-secondary  hover:text-primary  tracking-widest antialiased font-semibold flex "> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                                </svg>
-                                    Contact</a>
-                                <a href="/resume" className="text-secondary  hover:text-primary  tracking-widest antialiased font-semibold flex " >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                                    </svg>
-                                    Resume
-                                </a>
-                            </div>
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+                    ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700'
+                    : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
+                }`}
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
+                    <motion.a
+                        href="/"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center"
+                    >
+                        <div className="bg-primary-500 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg">
+                            SG
                         </div>
+                        <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
+                            Sai Ganesh
+                        </span>
+                    </motion.a>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center space-x-8">
+                        {navItems.map((item, index) => (
+                            <motion.a
+                                key={item.href}
+                                href={item.href}
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ y: -2 }}
+                                className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 relative group"
+                            >
+                                <item.icon className="text-sm" />
+                                <span>{item.label}</span>
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full"></span>
+                            </motion.a>
+                        ))}
+
+                        {/* Dark Mode Toggle */}
+                        <DarkModeToggle />
+
+                        {/* CTA Button */}
+                        <motion.a
+                            href="https://drive.google.com/file/d/14uMrcWh6-q9l4oLHL7BSOEXmzvB8KrW6/view"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors font-medium"
+                        >
+                            Download CV
+                        </motion.a>
                     </div>
 
+                    {/* Mobile menu button */}
+                    <div className="md:hidden flex items-center gap-3">
+                        <DarkModeToggle />
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="text-gray-700 dark:text-gray-300 hover:text-primary-500 focus:outline-none"
+                        >
+                            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>
 
+                {/* Mobile Navigation */}
+                <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{
+                        opacity: isOpen ? 1 : 0,
+                        height: isOpen ? 'auto' : 0
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="md:hidden overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+                >
+                    <div className="px-2 pt-2 pb-3 space-y-1">
+                        {navItems.map((item, index) => (
+                            <motion.a
+                                key={item.href}
+                                href={item.href}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                onClick={() => setIsOpen(false)}
+                                className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-gray-800 px-3 py-2 rounded-md font-medium transition-colors"
+                            >
+                                <item.icon />
+                                <span>{item.label}</span>
+                            </motion.a>
+                        ))}
+
+                        <motion.a
+                            href="https://drive.google.com/file/d/14uMrcWh6-q9l4oLHL7BSOEXmzvB8KrW6/view"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: navItems.length * 0.1 }}
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center gap-3 bg-primary-500 text-white hover:bg-primary-600 px-3 py-2 rounded-md font-medium transition-colors mx-3 mt-4"
+                        >
+                            <FaFileAlt />
+                            <span>Download CV</span>
+                        </motion.a>
+                    </div>
+                </motion.div>
+            </div>
+        </motion.nav>
     )
 }
 

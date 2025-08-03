@@ -3,134 +3,326 @@ import SplitType from 'split-type'
 import { useEffect } from 'react';
 import { motion } from "framer-motion";
 import { animate, stagger } from 'motion';
-import { BiLogoReact, BiLogoGithub, BiLogoNodejs, BiLogoMongodb, BiLogoTailwindCss } from 'react-icons/bi'
+import { BiLogoReact, BiLogoGithub, BiLogoNodejs, BiLogoTailwindCss, BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
+import { FaShieldAlt, FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt, FaDownload, FaCertificate } from 'react-icons/fa'
+import { SiNextdotjs } from 'react-icons/si'
+import CyberSecuritySkills from '../components/CyberSecuritySkills'
 
 const Landingpage = () => {
     useEffect(() => {
-
         const heading1 = new SplitType('#heading1');
         const heading2 = new SplitType('#heading2');
         const paragarph = new SplitType('#para1');
         const heroElements = [...heading1.words, ...paragarph.lines, ...heading2.words];
         animate(heroElements, { y: [24, 0], opacity: [0, 1] }, { duration: 0.8, delay: stagger(0.08) });
-        // animate(
-        //     "#react",
-        //     { rotate: 360 },
-        //     {
-        //         duration: 0.9,
-        //         easing: "linear",
-        //         repeat: Infinity,
-        //         direction: "normal"
-        //     });
     }, []);
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2
+            }
+        }
+    };
 
-
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        }
+    };
 
     return (
-        <div className="bg-gradient-to-r from-[#793FDF] to-[#7091F5] select-none  ">
-            <div className="m-0 flex justify-between h-auto  content-center">
-                <div className="justify-item-start flex flex-col space-y-6 ml-12 mt-16 ext-stroke-4 text-stroke-blue text-fill-blue  ">
-                    <h3 id='heading1' className="text-7xl text-left  font-bold justify-self-start tracking-wide text-white px-2 bg-blend-multiply underline hover:underline-offset-10">KC Sai <span className="text-orange-500">Ganesh </span>!</h3>
-                    <p id='para1' className=" text-3xl text-left tracking-wide text-primary leading-relaxed line-clamp-4">
-                        MERN stack developer with a thirst for adventure. <br />
-                        I love to build and explore,
-                        <br />both in code and in the real world.
-                    </p>
-                </div>
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.5,
-                        ease: [0, 0.71, 0.2, 1.01]
-                    }} className="order-last self-center mr-64 mt-24 relative  z-0 ">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen">
+            {/* Hero Section */}
+            <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="mb-8"
+                        >
+                            <img
+                                alt="SAI GANESH KC"
+                                src='https://media.licdn.com/dms/image/v2/D5603AQGbY4ta_Y_qBg/profile-displayphoto-shrink_400_400/B56ZYP1O4aHoAs-/0/1744022335493?e=1756944000&v=beta&t=Ylk6yvb-wPgTxYAVdI4xTGAh_nsUHVRtvnWG1J1PjGc'
+                                className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto rounded-full shadow-2xl border-4 border-primary-500 mb-8"
+                            />
+                            <h1 id='heading1' className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
+                                SAI GANESH <span className="text-primary-500">KC</span>
+                            </h1>
+                            <p id='para1' className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+                                Frontend Developer & Cybersecurity Professional
+                                <br />
+                                Building secure, modern web experiences
+                            </p>
+                        </motion.div>
 
-                    <img alt="imgprofile" src='https://avatars.githubusercontent.com/u/75118214?v=4' className="w-80 h-80 shadow-2xl  shadow-sky-50/30 rounded-full border-spacing-1 border-2 fill-white ">
+                        {/* Contact Info */}
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate="visible"
+                            className="flex flex-wrap justify-center gap-4 mb-8 text-gray-700 dark:text-gray-300"
+                        >
+                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600">
+                                <FaEnvelope className="text-primary-500" />
+                                <span>kcsaiganesh@gmail.com</span>
+                            </motion.div>
+                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600">
+                                <FaPhone className="text-primary-500" />
+                                <span>(+91) 8310048387</span>
+                            </motion.div>
+                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600">
+                                <FaMapMarkerAlt className="text-primary-500" />
+                                <span>Bangalore, Karnataka, India</span>
+                            </motion.div>
+                        </motion.div>
 
-                    </img>
-                </motion.div>
+                        {/* Social Links */}
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate="visible"
+                            className="flex justify-center gap-6 mb-12"
+                        >
+                            <motion.a
+                                variants={itemVariants}
+                                href="https://linkedin.com/in/saiganesh"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors shadow-lg"
+                            >
+                                <FaLinkedin size={24} />
+                            </motion.a>
+                            <motion.a
+                                variants={itemVariants}
+                                href="https://github.com/kcsaiganesh"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors shadow-lg"
+                            >
+                                <FaGithub size={24} />
+                            </motion.a>
+                            <motion.a
+                                variants={itemVariants}
+                                href="mailto:kcsaiganesh@gmail.com"
+                                className="bg-primary-500 text-white p-3 rounded-full hover:bg-primary-600 transition-colors shadow-lg"
+                            >
+                                <FaEnvelope size={24} />
+                            </motion.a>
+                        </motion.div>
 
-            </div>
-            <h2 className="font-extrabold text-5xl flex  underline underline-offset-8  left-0 text-blue-950 m-8 ">Personal information</h2>
-            <div className=" justify-items-center ">
-                <div class=" flex item-strech card rounded-xl ml-7  backdrop-blue-sm  drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white bg-white/30  w-11/12 text-left justify-between ">
-                    <table className="table-auto border-collapse text-xl ml-12 ">
-                        <tbody>
-                            <tr>
-                                <td className="font-bold">Name :</td>
-                                <td>KC Sai Ganesh.</td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td className="font-bold">Education: </td>
-                                <td>Bca,Banglore University.</td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td className="font-bold">Email :</td>
-                                <td>kcsaiganesh@gmail.com.</td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td className="font-bold">D.O.B :</td>
-                                <td>06/08/2002.</td>
-                            </tr>
-                            <br />
-                            <tr>
-                                <td className="font-bold">live :</td>
-                                <td>Banglore.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div className="right-0 end-0 justify-center self-center ml-24 ">
-                        <h4 className="font-extrabold text-2xl mb-1 -mt-10 underline underline-offset-8  text-blue-950">About me</h4>
-                        <p className="text-secondary m-3 text-xl leading-loose" >I'm Kc Sai Ganesh, Enthusiastic BCA graduate with a passion for web development and software engineering. I love building things, and I'm always looking for new and innovative ways to use technology to solve problems. I'm proficient in a range of programming languages and technologies, including HTML, CSS, JavaScript, React, Node.js, and MongoDB. I'm also dedicated to continuous learning and staying up-to-date with industry trends.</p>
+                        {/* CTA Button */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1, duration: 0.6 }}
+                        >
+                            <button className="bg-primary-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-600 transition-colors shadow-lg flex items-center gap-2 mx-auto">
+                                <FaDownload />
+                                Download Resume
+                            </button>
+                        </motion.div>
                     </div>
                 </div>
+            </section>
 
+            {/* Cybersecurity Skills Section */}
+            <CyberSecuritySkills />
 
-            </div>
-            <div className=''>
-                <h2 className="font-extrabold text-5xl flex ml-12 underline underline-offset-8 mt-3 text-blue-950 ">Skill-Set</h2>
-                <div className="flex flex-row justify-around items-center mt-12  content-evenly" >
-                    <div class=" card rounded-lg pb-8 backdrop-blue-sm  justify-center  drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white bg-white/30  w-64 mb-6 ">
-                        <BiLogoReact id='react' className="h-24 w-24  " />
-                        <h3 className="font-bold text-2xl mb-2 text-primary">React</h3>
+            {/* Traditional Skills Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Web Development Skills</h2>
+                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                            Frontend development expertise with modern frameworks and technologies
+                        </p>
+                    </motion.div>
 
-                        <p className="text-secondary"> React is a popular JavaScript library for building user interfaces. It is declarative, efficient, and flexible.</p>
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+                    >
+                        {[
+                            { icon: SiNextdotjs, name: "Next.js", color: "text-black dark:text-white" },
+                            { icon: BiLogoReact, name: "React", color: "text-blue-500" },
+                            { icon: BiLogoTailwindCss, name: "Tailwind CSS", color: "text-cyan-500" },
+                            { icon: BiLogoTypescript, name: "TypeScript", color: "text-blue-600" },
+                            { icon: BiLogoJavascript, name: "JavaScript", color: "text-yellow-500" },
+                            { icon: BiLogoNodejs, name: "Node.js", color: "text-green-600" },
+                            { icon: BiLogoGithub, name: "Git", color: "text-gray-800 dark:text-gray-300" },
+                            { icon: FaShieldAlt, name: "Security", color: "text-red-500" }
+                        ].map((skill, index) => (
+                            <motion.div
+                                key={index}
+                                variants={itemVariants}
+                                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-shadow border dark:border-gray-700"
+                            >
+                                <skill.icon className={`text-5xl ${skill.color} mx-auto mb-4`} />
+                                <h3 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
 
-                    </div>
-                    <div class=" card rounded-lg pb-8 backdrop-blue-sm  justify-center drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white bg-white/30  w-64 mb-6 ">
-                        <BiLogoGithub className="h-24 w-24  " /> <h3 className="font-bold text-2xl mb-2 text-primary">Github</h3>
+            {/* Experience Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
+                        <p className="text-xl text-gray-600 dark:text-gray-300 text-left max-w-3xl mx-auto">
+                            Professional journey combining frontend development expertise with cybersecurity knowledge
+                        </p>
+                    </motion.div>
 
-                        <p className="text-secondary">GitHub is a popular code hosting platform that allows developers to store, share, and manage their code.</p>
+                    <div className="space-y-12">
+                        {/* Frontend Developer Experience */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg border dark:border-gray-700"
+                        >
+                            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                                <div className="text-left">
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Frontend Developer Intern</h3>
+                                    <p className="text-xl text-primary-500 font-semibold">Tymtix Solutions LLP, Bengaluru</p>
+                                </div>
+                                <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-4 py-2 rounded-full text-sm font-medium">
+                                    March 2024 - June 2024
+                                </span>
+                            </div>
+                            <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-left">
+                                <li>• Developed responsive web pages using Next.js and Tailwind CSS</li>
+                                <li>• Integrated third-party libraries and APIs for enhanced functionality</li>
+                                <li>• Engineered seamless API integration improving real-time performance by 40%</li>
+                                <li>• Reduced page load times by 25%, significantly improving user engagement</li>
+                                <li>• Demonstrated adaptability with new technologies and frameworks</li>
+                            </ul>
+                        </motion.div>
 
-                    </div>
-                    <div class=" card rounded-lg pb-8 backdrop-blue-sm  justify-center drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white bg-white/30  w-64 mb-6 ">
-                        <BiLogoMongodb className="h-24 w-24  " />  <h3 className="font-bold text-2xl mb-2 text-primary">Mongodb</h3>
-
-                        <p className="text-secondary">MongoDB is a NoSQL database that is document-oriented and JavaScript-based. It is scalable and cloud-native.</p>
-
-                    </div>
-
-                    <div class="card rounded-lg pb-8 backdrop-blue-sm  justify-center drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white  bg-white/30  w-64 mb-6 ">
-                        <BiLogoNodejs className="h-24 w-24  " /><h3 className="font-bold text-2xl mb-2 text-primary">Node</h3>
-
-                        <p className="text-secondary"> Node.js is a JavaScript runtime environment that is cross-platform, event-driven, scalable, asynchronous, and performant.</p>
-
-                    </div>
-                    <div class="card rounded-lg pb-8 backdrop-blue-sm  justify-center drop-shadow-2xl h-80 shadow-lg shadow-blue-500/50  border border-white  bg-white/30  w-64 mb-6 ">
-                        <BiLogoTailwindCss className="h-24 w-24  " /><h3 className="font-bold text-2xl mb-2 text-primary">Tailwind css</h3>
-
-                        <p className="text-secondary"> Tailwind CSS is highly customizable and makes development and responsiveness easy.</p>
-
+                        {/* Marketing Experience */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg border dark:border-gray-700"
+                        >
+                            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                                <div className="text-left">
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Marketing & Procurement Executive</h3>
+                                    <p className="text-xl text-primary-500 font-semibold">GRKMS Pvt Ltd, Bengaluru</p>
+                                </div>
+                                <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-4 py-2 rounded-full text-sm font-medium">
+                                    Jan 2025 - Apr 2025
+                                </span>
+                            </div>
+                            <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-left">
+                                <li>• Utilized advanced data mining techniques to identify high-potential leads</li>
+                                <li>• Created tailored, impactful proposals based on detailed client needs analysis</li>
+                                <li>• Designed and executed targeted email marketing campaigns</li>
+                                <li>• Managed quotations and negotiations to secure favorable agreements</li>
+                                <li>• Built and maintained strong client relationships through consistent engagement</li>
+                            </ul>
+                        </motion.div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-        </div >
+            {/* Education Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-8 rounded-xl shadow-lg text-center border dark:border-gray-600"
+                    >
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Bachelor of Computer Applications</h3>
+                        <p className="text-xl text-primary-600 dark:text-primary-400 font-semibold mb-2">Kuvempu First Grade College, Bangalore</p>
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">Feb 2020 - Aug 2023</p>
+                        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg inline-block border dark:border-gray-600">
+                            <p className="text-lg"><span className="font-semibold text-gray-900 dark:text-white">CGPA:</span> 8.54 - First Class Exemplary</p>
+                            <p className="text-gray-700 dark:text-gray-200">Bangalore University, August 2023</p>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Certifications Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
+                        <p className="text-xl text-gray-600 dark:text-gray-300">Professional certifications and achievements</p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border dark:border-gray-700"
+                        >
+                            <FaCertificate className="text-4xl text-primary-500 mb-4" />
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Frontend Developer Internship</h3>
+                            <p className="text-gray-600 dark:text-gray-300 mb-2">@Nextrive (3 Months)</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-300">Certificate available upon request</p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border dark:border-gray-700"
+                        >
+                            <FaShieldAlt className="text-4xl text-red-500 mb-4" />
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Google Cybersecurity Professional</h3>
+                            <p className="text-gray-600 dark:text-gray-300 mb-2">Currently Pursuing via Coursera</p>
+                            <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg mt-4 border dark:border-gray-600">
+                                <p className="text-sm text-gray-700 dark:text-gray-200">
+                                    <strong>Credly Link:</strong> <span className="italic">Will be updated upon completion</span>
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+        </div>
     )
 }
 
