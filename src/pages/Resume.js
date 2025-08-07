@@ -247,11 +247,28 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                  <FaAward className="text-2xl text-red-500 mt-1" />
-                  <div>
+                  <FaAward className="text-2xl text-green-500 mt-1" />
+                  <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white">Google Cybersecurity Professional</h3>
-                    <p className="text-gray-700 dark:text-gray-200">Currently Pursuing via Coursera</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Expected completion: 2025</p>
+                    <p className="text-gray-700 dark:text-gray-200">✅ Completed via Coursera</p>
+                    <div className="mt-3">
+                      <div
+                        data-iframe-width="120"
+                        data-iframe-height="180"
+                        data-share-badge-id="1f55b2a7-b8df-4d38-a97c-dd4de19a2a5a"
+                        data-share-badge-host="https://www.credly.com"
+                      ></div>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+                      <a
+                        href="https://www.credly.com/users/sai-ganesh-kc"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-500 hover:text-primary-600 underline"
+                      >
+                        View on Credly
+                      </a>
+                    </p>
                   </div>
                 </motion.div>
               </div>

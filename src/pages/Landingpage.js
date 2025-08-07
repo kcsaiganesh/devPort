@@ -57,7 +57,7 @@ const Landingpage = () => {
                                 SAI GANESH <span className="text-primary-500">KC</span>
                             </h1>
                             <p id='para1' className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                                Frontend Developer & Cybersecurity Professional
+                                Frontend Developer & Google Certified Cybersecurity Professional
                                 <br />
                                 Building secure, modern web experiences
                             </p>
@@ -310,12 +310,32 @@ const Landingpage = () => {
                             transition={{ duration: 0.8 }}
                             className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border dark:border-gray-700"
                         >
-                            <FaShieldAlt className="text-4xl text-red-500 mb-4" />
+                            <FaShieldAlt className="text-4xl text-green-500 mb-4" />
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Google Cybersecurity Professional</h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-2">Currently Pursuing via Coursera</p>
-                            <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg mt-4 border dark:border-gray-600">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">✅ Completed via Coursera</p>
+
+                            {/* Credly Badge */}
+                            <div className="flex flex-col items-center mb-4">
+                                <div
+                                    data-iframe-width="150"
+                                    data-iframe-height="270"
+                                    data-share-badge-id="1f55b2a7-b8df-4d38-a97c-dd4de19a2a5a"
+                                    data-share-badge-host="https://www.credly.com"
+                                    className="mb-3"
+                                ></div>
+                            </div>
+
+                            <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg border dark:border-gray-600">
                                 <p className="text-sm text-gray-700 dark:text-gray-200">
-                                    <strong>Credly Link:</strong> <span className="italic">Will be updated upon completion</span>
+                                    <strong>Credly Profile:</strong>
+                                    <a
+                                        href="https://www.credly.com/users/sai-ganesh-kc"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-primary-500 hover:text-primary-600 ml-1 underline"
+                                    >
+                                        View All Credentials
+                                    </a>
                                 </p>
                             </div>
                         </motion.div>
