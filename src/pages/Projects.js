@@ -119,7 +119,7 @@ const Projects = () => {
 
                                 {/* Project Details */}
                                 <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                    <div className="flex items-center gap-2 text-primary-500 font-semibold mb-4">
+                                    <div className="flex items-center gap-2 text-primary-500 dark:text-white font-semibold mb-4">
                                         <FaCalendarAlt />
                                         <span>{project.period}</span>
                                     </div>
@@ -203,9 +203,9 @@ const Projects = () => {
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Open Source Contributions</h2>
                     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border dark:border-gray-600">
                         <div className="flex items-center gap-4 mb-4">
-                            <FaUsers className="text-2xl text-primary-500" />
+                            <FaUsers className="text-2xl dark:text-white text-primary-500" />
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">Hacktoberfest 2023</h3>
-                            <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">
+                            <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
                                 October 2023
                             </span>
                         </div>

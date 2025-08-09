@@ -30,8 +30,8 @@ const Navbar = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.6 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700'
-                    : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
+                ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700'
+                : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,7 +124,7 @@ const Navbar = () => {
                         ))}
 
                         <motion.a
-                            href="https://drive.google.com/file/d/14uMrcWh6-q9l4oLHL7BSOEXmzvB8KrW6/view"
+                            href="https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             initial={{ opacity: 0, x: -20 }}
@@ -134,7 +134,7 @@ const Navbar = () => {
                             className="flex items-center gap-3 bg-primary-500 text-white hover:bg-primary-600 px-3 py-2 rounded-md font-medium transition-colors mx-3 mt-4"
                         >
                             <FaFileAlt />
-                            <span>Download CV</span>
+                            <span >Download CV</span>
                         </motion.a>
                     </div>
                 </motion.div>

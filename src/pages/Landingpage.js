@@ -39,8 +39,18 @@ const Landingpage = () => {
     return (
         <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen">
             {/* Hero Section */}
-            <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-                <div className="max-w-7xl mx-auto">
+            <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 overflow-hidden">
+                {/* Clean Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900/10 "></div>
+
+                {/* Subtle Background Elements */}
+                <div className="absolute inset-0">
+                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-100/30 dark:bg-primary-500/10 rounded-full filter blur-3xl"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-100/30 dark:bg-blue-500/10 rounded-full filter blur-3xl"></div>
+                </div>
+
+                {/* Main Container */}
+                <div className="relative max-w-7xl mx-auto">
                     <div className="text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -48,43 +58,49 @@ const Landingpage = () => {
                             transition={{ duration: 0.8 }}
                             className="mb-8"
                         >
-                            <img
-                                alt="SAI GANESH KC"
-                                src='https://media.licdn.com/dms/image/v2/D5603AQGbY4ta_Y_qBg/profile-displayphoto-shrink_400_400/B56ZYP1O4aHoAs-/0/1744022335493?e=1756944000&v=beta&t=Ylk6yvb-wPgTxYAVdI4xTGAh_nsUHVRtvnWG1J1PjGc'
-                                className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto rounded-full shadow-2xl border-4 border-primary-500 mb-8"
-                            />
-                            <h1 id='heading1' className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
+                            {/* Clean Profile Image */}
+                            <div className="relative inline-block mb-8">
+                                <img
+                                    alt="SAI GANESH KC"
+                                    src='https://media.licdn.com/dms/image/v2/D5603AQGbY4ta_Y_qBg/profile-displayphoto-shrink_400_400/B56ZYP1O4aHoAs-/0/1744022335493?e=1756944000&v=beta&t=Ylk6yvb-wPgTxYAVdI4xTGAh_nsUHVRtvnWG1J1PjGc'
+                                    className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto rounded-full shadow-xl border-4 border-white dark:border-gray-700"
+                                />
+                            </div>
+
+                            {/* Clean Typography */}
+                            <h1 id='heading1' className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
                                 SAI GANESH <span className="text-primary-500">KC</span>
                             </h1>
-                            <p id='para1' className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                                Frontend Developer & Google Certified Cybersecurity Professional
+
+                            <p id='para1' className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed">
+                                Google Certified Cybersecurity Professional & Frontend Developer
                                 <br />
-                                Building secure, modern web experiences
+                                <span className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">Building secure, modern web experiences</span>
                             </p>
                         </motion.div>
 
-                        {/* Contact Info */}
+                        {/* Clean Contact Info */}
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
                             animate="visible"
-                            className="flex flex-wrap justify-center gap-4 mb-8 text-gray-700 dark:text-gray-300"
+                            className="flex flex-wrap justify-center gap-4 mb-8"
                         >
-                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600">
-                                <FaEnvelope className="text-primary-500" />
-                                <span>kcsaiganesh@gmail.com</span>
+                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600 hover:shadow-lg transition-shadow">
+                                <FaEnvelope className='text-primary-500 dark:text-white' />
+                                <span className="text-gray-700 dark:text-gray-200">kcsaiganesh@gmail.com</span>
                             </motion.div>
-                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600">
-                                <FaPhone className="text-primary-500" />
-                                <span>(+91) 8310048387</span>
+                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600 hover:shadow-lg transition-shadow">
+                                <FaPhone className='text-primary-500 dark:text-white' />
+                                <span className="text-gray-700 dark:text-gray-200">(+91) 8310048387</span>
                             </motion.div>
-                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600">
-                                <FaMapMarkerAlt className="text-primary-500" />
-                                <span>Bangalore, Karnataka, India</span>
+                            <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border dark:border-gray-600 hover:shadow-lg transition-shadow">
+                                <FaMapMarkerAlt className='text-primary-500 dark:text-white' />
+                                <span className="text-gray-700 dark:text-gray-200">Bangalore, Karnataka, India</span>
                             </motion.div>
                         </motion.div>
 
-                        {/* Social Links */}
+                        {/* Clean Social Links */}
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -105,7 +121,7 @@ const Landingpage = () => {
                                 href="https://github.com/kcsaiganesh"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors shadow-lg"
+                                className="bg-gray-800 dark:bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors shadow-lg"
                             >
                                 <FaGithub size={24} />
                             </motion.a>
@@ -118,16 +134,21 @@ const Landingpage = () => {
                             </motion.a>
                         </motion.div>
 
-                        {/* CTA Button */}
+                        {/* Clean CTA Button */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1, duration: 0.6 }}
                         >
-                            <button className="bg-primary-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-600 transition-colors shadow-lg flex items-center gap-2 mx-auto">
+                            <a
+                                href="https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-primary-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-600 transition-colors shadow-lg inline-flex items-center gap-2 mx-auto"
+                            >
                                 <FaDownload />
                                 Download Resume
-                            </button>
+                            </a>
                         </motion.div>
                     </div>
                 </div>
@@ -206,9 +227,9 @@ const Landingpage = () => {
                             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                                 <div className="text-left">
                                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Frontend Developer Intern</h3>
-                                    <p className="text-xl text-primary-500 font-semibold">Tymtix Solutions LLP, Bengaluru</p>
+                                    <p className="text-xl text-primary-500 dark:text-gray-300 italic font-semibold">Tymtix Solutions LLP, Bengaluru</p>
                                 </div>
-                                <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
                                     March 2024 - June 2024
                                 </span>
                             </div>
@@ -231,9 +252,10 @@ const Landingpage = () => {
                             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                                 <div className="text-left">
                                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Marketing & Procurement Executive</h3>
-                                    <p className="text-xl text-primary-500 font-semibold">GRKMS Pvt Ltd, Bengaluru</p>
+                                    <p className="text-xl text-primary-500 dark:text-gray-300 italic font-semibold">GRKMS Pvt Ltd, Bengaluru</p>
                                 </div>
-                                <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
+
                                     Jan 2025 - Apr 2025
                                 </span>
                             </div>
@@ -268,10 +290,10 @@ const Landingpage = () => {
                         className="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-8 rounded-xl shadow-lg text-center border dark:border-gray-600"
                     >
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Bachelor of Computer Applications</h3>
-                        <p className="text-xl text-primary-600 dark:text-primary-400 font-semibold mb-2">Kuvempu First Grade College, Bangalore</p>
+                        <p className="text-xl text-primary-600 dark:text-gray-400 font-semibold mb-2">Kuvempu First Grade College, Bangalore</p>
                         <p className="text-gray-700 dark:text-gray-300 mb-4">Feb 2020 - Aug 2023</p>
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-lg inline-block border dark:border-gray-600">
-                            <p className="text-lg"><span className="font-semibold text-gray-900 dark:text-white">CGPA:</span> 8.54 - First Class Exemplary</p>
+                            <p className="text-lg text-gray-900 dark:text-white"><span className="font-semibold text-gray-900 dark:text-white">CGPA:</span > 8.54 - First Class Exemplary</p>
                             <p className="text-gray-700 dark:text-gray-200">Bangalore University, August 2023</p>
                         </div>
                     </motion.div>

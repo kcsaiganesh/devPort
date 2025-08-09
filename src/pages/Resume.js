@@ -54,14 +54,14 @@ const Resume = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold shadow-lg">
+            <a href="https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing" className="flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold shadow-lg">
               <FaDownload />
               Download Resume
-            </button>
-            <button className="flex items-center gap-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-semibold shadow-lg">
+            </a>
+            <a href='https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing' className="flex items-center gap-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-semibold shadow-lg">
               <FaEye />
               View Online
-            </button>
+            </a>
           </div>
         </motion.div>
 
@@ -94,29 +94,29 @@ const Resume = () => {
             {/* Contact Info */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600 mb-8">
               <div className="flex items-center gap-3 mb-6">
-                <FaUser className="text-2xl text-primary-500" />
+                <FaUser className="text-2xl text-primary-500 dark:text-white" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Contact Info</h2>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <FaEnvelope className="text-lg text-primary-500" />
+                  <FaEnvelope className="text-lg text-primary-500 dark:text-white" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3>
+                    {/* <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3> */}
                     <p className="text-gray-700 dark:text-gray-200">kcsaiganesh@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FaPhone className="text-lg text-primary-500" />
+                  <FaPhone className="text-lg text-primary-500 dark:text-white" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3>
+                    {/* <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3> */}
                     <p className="text-gray-700 dark:text-gray-200">(+91) 8310048387</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FaMapMarkerAlt className="text-lg text-primary-500" />
+                  <FaMapMarkerAlt className="text-lg text-primary-500 dark:text-white" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">Location</h3>
+                    {/* <h3 className="font-semibold text-gray-900 dark:text-white">Location</h3> */}
                     <p className="text-gray-700 dark:text-gray-200">Bangalore, Karnataka, India</p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ const Resume = () => {
             {/* Skills */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
               <div className="flex items-center gap-3 mb-6">
-                <FaCode className="text-2xl text-primary-500" />
+                <FaCode className="text-2xl text-primary-500 dark:text-white" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Technical Skills</h2>
               </div>
 
@@ -135,7 +135,7 @@ const Resume = () => {
                   <div key={index}>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <skill.icon className="text-lg text-primary-500" />
+                        <skill.icon className="text-lg text-primary-500 dark:text-white" />
                         <span className="font-medium text-gray-900 dark:text-white">{skill.name}</span>
                       </div>
                       <span className="text-sm text-gray-600 dark:text-gray-300">{skill.level}%</span>
@@ -162,7 +162,7 @@ const Resume = () => {
             {/* Experience */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
               <div className="flex items-center gap-3 mb-6">
-                <FaBriefcase className="text-2xl text-primary-500" />
+                <FaBriefcase className="text-2xl text-primary-500 dark:text-white" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Experience</h2>
               </div>
 
@@ -171,9 +171,9 @@ const Resume = () => {
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-2">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">Frontend Developer Intern</h3>
-                      <p className="text-primary-600 dark:text-primary-400 font-semibold">Tymtix Solutions LLP, Bengaluru</p>
+                      <p className="text-primary-600 dark:text-gray-400 font-semibold">Tymtix Solutions LLP, Bengaluru</p>
                     </div>
-                    <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bbg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
                       March 2024 - June 2024
                     </span>
                   </div>
@@ -189,9 +189,9 @@ const Resume = () => {
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-2">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">Marketing & Procurement Executive</h3>
-                      <p className="text-primary-600 dark:text-primary-400 font-semibold">GRKMS Pvt Ltd, Bengaluru</p>
+                      <p className="text-primary-600 dark:text-gray-400 font-semibold">GRKMS Pvt Ltd, Bengaluru</p>
                     </div>
-                    <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
                       Jan 2025 - Apr 2025
                     </span>
                   </div>
@@ -208,7 +208,7 @@ const Resume = () => {
             {/* Education */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
               <div className="flex items-center gap-3 mb-6">
-                <FaGraduationCap className="text-2xl text-primary-500" />
+                <FaGraduationCap className="text-2xl text-primary-500 dark:text-white" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Education</h2>
               </div>
 
@@ -216,15 +216,15 @@ const Resume = () => {
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-2">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">Bachelor of Computer Applications</h3>
-                    <p className="text-primary-600 dark:text-primary-400 font-semibold">Kuvempu First Grade College, Bangalore</p>
-                    <p className="text-gray-600 dark:text-gray-300">Bangalore University</p>
+                    <p className="text-primary-600 dark:text- font-semibold dark:text-white">Kuvempu First Grade College, Bangalore</p>
+                    <p className="text-gray-600 dark:text-white">Bangalore University</p>
                   </div>
-                  <span className="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
                     Feb 2020 - Aug 2023
                   </span>
                 </div>
                 <div className="bg-primary-50 dark:bg-primary-900/30 p-4 rounded-lg mt-2">
-                  <p className="text-primary-700 dark:text-primary-200 font-semibold">CGPA: 8.54 - First Class Exemplary</p>
+                  <p className="text-primary-700 dark:text-white font-semibold">CGPA: 8.54 - First Class Exemplary</p>
                 </div>
               </motion.div>
             </div>
@@ -232,14 +232,14 @@ const Resume = () => {
             {/* Certifications */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
               <div className="flex items-center gap-3 mb-6">
-                <FaCertificate className="text-2xl text-primary-500" />
+                <FaCertificate className="text-2xl text-primary-500 dark:text-white" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Certifications</h2>
               </div>
 
               <div className="space-y-4">
                 <motion.div variants={itemVariants} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                  <FaAward className="text-2xl text-primary-500 mt-1" />
-                  <div>
+                  <FaAward className="text-2xl text-green-500 mt-1" />
+                  <div className='flex-1 justify-between'>
                     <h3 className="font-bold text-gray-900 dark:text-white">Frontend Developer Internship</h3>
                     <p className="text-gray-700 dark:text-gray-200">@Nextrive (3 Months)</p>
                     <p className="text-sm text-gray-600 dark:text-gray-300">Certificate available upon request</p>
@@ -247,14 +247,14 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                  <FaAward className="text-2xl text-green-500 mt-1" />
+                  <FaAward className="text-2xl text-red-500 mt-1" />
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white">Google Cybersecurity Professional</h3>
-                    <p className="text-gray-700 dark:text-gray-200">✅ Completed via Coursera</p>
+                    <p className="text-gray-700 dark:text-gray-200">Completed via Coursera</p>
                     <div className="mt-3">
                       <div
-                        data-iframe-width="120"
-                        data-iframe-height="180"
+                        data-iframe-width="180"
+                        data-iframe-height="220"
                         data-share-badge-id="1f55b2a7-b8df-4d38-a97c-dd4de19a2a5a"
                         data-share-badge-host="https://www.credly.com"
                       ></div>
@@ -277,16 +277,16 @@ const Resume = () => {
             {/* Languages */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
               <div className="flex items-center gap-3 mb-6">
-                <FaLanguage className="text-2xl text-primary-500" />
+                <FaLanguage className="text-2xl text-primary-500 dark:text-white" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Languages</h2>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { name: 'English', level: 'Fluent' },
-                  { name: 'Hindi', level: 'Native' },
+                  { name: 'Hindi', level: 'Conversational' },
                   { name: 'Kannada', level: 'Native' },
-                  { name: 'Telugu', level: 'Conversational' }
+                  { name: 'Telugu', level: 'Native' }
                 ].map((language, index) => (
                   <motion.div key={index} variants={itemVariants} className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
                     <h3 className="font-semibold text-gray-900 dark:text-white">{language.name}</h3>
