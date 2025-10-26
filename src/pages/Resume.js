@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload, FaEye, FaUser, FaGraduationCap, FaBriefcase, FaCertificate, FaCode, FaLanguage, FaAward, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-import { BiLogoReact, BiLogoGithub, BiLogoNodejs, BiLogoTailwindCss, BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi';
-import { SiNextdotjs } from 'react-icons/si';
-
+import { SiOwasp, SiPython } from 'react-icons/si';
+import { FaLock, FaCrosshairs } from 'react-icons/fa'; // Used FaCrosshairs as an alternative to SiNmap
+import { BiLogoJavascript, BiLogoGithub } from 'react-icons/bi';
+import Profile from '../assets/saiGaneshProfile.jpg'; // ✅ CORRECT: Importing the default URL export
 const Resume = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,12 +29,20 @@ const Resume = () => {
   };
 
   const skills = [
-    { name: "Next.js", icon: SiNextdotjs, level: 90 },
-    { name: "React", icon: BiLogoReact, level: 85 },
-    { name: "TypeScript", icon: BiLogoTypescript, level: 80 },
-    { name: "JavaScript", icon: BiLogoJavascript, level: 90 },
-    { name: "Tailwind CSS", icon: BiLogoTailwindCss, level: 85 },
-    { name: "Node.js", icon: BiLogoNodejs, level: 75 },
+    // --- Cybersecurity Skills ---
+    { name: "AppSec (OWASP)", icon: SiOwasp, level: 90 },
+    { name: "Vulnerability Mgmt", icon: FaLock, level: 85 },
+    {
+      name: "Penetration Testing",
+      icon: FaCrosshairs, // Corrected: Using a general 'targeting' icon as SiNmap was causing an error
+      level: 80
+    },
+
+    // --- Hybrid/Scripting Skills ---
+    { name: "Python", icon: SiPython, level: 90 },
+
+    // --- Core Development & Tooling ---
+    { name: "JavaScript", icon: BiLogoJavascript, level: 75 },
     { name: "Git", icon: BiLogoGithub, level: 80 }
   ];
 
@@ -54,11 +63,11 @@ const Resume = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing" className="flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold shadow-lg">
+            <a href="https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link" className="flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold shadow-lg">
               <FaDownload />
               Download Resume
             </a>
-            <a href='https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing' className="flex items-center gap-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-semibold shadow-lg">
+            <a href='https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link' className="flex items-center gap-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-semibold shadow-lg">
               <FaEye />
               View Online
             </a>
@@ -78,7 +87,7 @@ const Resume = () => {
               <div className="text-center">
                 <div className="relative inline-block">
                   <img
-                    src="https://media.licdn.com/dms/image/v2/D5603AQGbY4ta_Y_qBg/profile-displayphoto-shrink_400_400/B56ZYP1O4aHoAs-/0/1744022335493?e=1756944000&v=beta&t=Ylk6yvb-wPgTxYAVdI4xTGAh_nsUHVRtvnWG1J1PjGc"
+                    src={Profile} // This usage is correct!
                     alt="Sai Ganesh KC"
                     className="w-32 h-32 rounded-full object-cover mx-auto shadow-lg border-4 border-primary-500"
                   />

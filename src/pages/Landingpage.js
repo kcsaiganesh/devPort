@@ -3,10 +3,12 @@ import SplitType from 'split-type'
 import { useEffect } from 'react';
 import { motion } from "framer-motion";
 import { animate, stagger } from 'motion';
-import { BiLogoReact, BiLogoGithub, BiLogoNodejs, BiLogoTailwindCss, BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi'
-import { FaShieldAlt, FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt, FaDownload, FaCertificate } from 'react-icons/fa'
-import { SiNextdotjs } from 'react-icons/si'
+import { SiOwasp, SiOpenbugbounty, SiWireshark } from 'react-icons/si';
+import { SiBurpsuite } from "react-icons/si";
+import { GrVulnerability } from 'react-icons/gr'
+import { FaShieldAlt, FaLinkedin, FaEye, FaPython, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt, FaDownload, FaCertificate } from 'react-icons/fa'
 import CyberSecuritySkills from '../components/CyberSecuritySkills'
+import ProfileImage from '../assets/saiGaneshProfile.jpg'
 
 const Landingpage = () => {
     useEffect(() => {
@@ -62,8 +64,9 @@ const Landingpage = () => {
                             <div className="relative inline-block mb-8">
                                 <img
                                     alt="SAI GANESH KC"
-                                    src='https://media.licdn.com/dms/image/v2/D5603AQGbY4ta_Y_qBg/profile-displayphoto-shrink_400_400/B56ZYP1O4aHoAs-/0/1744022335493?e=1756944000&v=beta&t=Ylk6yvb-wPgTxYAVdI4xTGAh_nsUHVRtvnWG1J1PjGc'
-                                    className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto rounded-full shadow-xl border-4 border-white dark:border-gray-700"
+                                    src={ProfileImage}
+                                    className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto rounded-full shadow-xl border-4 border-white dark:border-gray-700 object-cover"
+
                                 />
                             </div>
 
@@ -73,9 +76,9 @@ const Landingpage = () => {
                             </h1>
 
                             <p id='para1' className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed">
-                                Google Certified Cybersecurity Professional & Frontend Developer
+                                Cybersecurity Professional
                                 <br />
-                                <span className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">Building secure, modern web experiences</span>
+                                <span className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">Dedicated to mastering AppSec. Committed to protecting AI's potential. </span>
                             </p>
                         </motion.div>
 
@@ -141,7 +144,7 @@ const Landingpage = () => {
                             transition={{ delay: 1, duration: 0.6 }}
                         >
                             <a
-                                href="https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing"
+                                href="https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-primary-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-600 transition-colors shadow-lg inline-flex items-center gap-2 mx-auto"
@@ -166,9 +169,9 @@ const Landingpage = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Web Development Skills</h2>
+                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Cybersecurity Skills</h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                            Frontend development expertise with modern frameworks and technologies
+                            Application Security (AppSec) Engineering focused on vulnerability management, threat identification, and secure coding practices.
                         </p>
                     </motion.div>
 
@@ -179,14 +182,46 @@ const Landingpage = () => {
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
                     >
                         {[
-                            { icon: SiNextdotjs, name: "Next.js", color: "text-black dark:text-white" },
-                            { icon: BiLogoReact, name: "React", color: "text-blue-500" },
-                            { icon: BiLogoTailwindCss, name: "Tailwind CSS", color: "text-cyan-500" },
-                            { icon: BiLogoTypescript, name: "TypeScript", color: "text-blue-600" },
-                            { icon: BiLogoJavascript, name: "JavaScript", color: "text-yellow-500" },
-                            { icon: BiLogoNodejs, name: "Node.js", color: "text-green-600" },
-                            { icon: BiLogoGithub, name: "Git", color: "text-gray-800 dark:text-gray-300" },
-                            { icon: FaShieldAlt, name: "Security", color: "text-red-500" }
+                            {
+                                icon: SiOpenbugbounty,
+                                name: "AppSec",
+                                color: "text-black dark:text-white"
+                            },
+                            {
+                                icon: FaEye,
+                                name: "Security Audits",
+                                color: "text-primary-500" // Reflects your 'primary-500' preference
+                            },
+                            {
+                                icon: SiBurpsuite,
+                                name: "Burp Suite",
+                                color: "text-cyan-500"
+                            },
+                            {
+                                icon: SiOwasp,
+                                name: "OWASP Top 10",
+                                color: "text-blue-600"
+                            },
+                            {
+                                icon: FaPython,
+                                name: "Python",
+                                color: "text-yellow-500"
+                            },
+                            {
+                                icon: SiWireshark,
+                                name: "Wireshark",
+                                color: "text-green-600"
+                            },
+                            {
+                                icon: FaGithub,
+                                name: "Git",
+                                color: "text-gray-800 dark:text-gray-300"
+                            },
+                            {
+                                icon: GrVulnerability,
+                                name: "Vulnerability Mgmt",
+                                color: "text-red-500"
+                            }
                         ].map((skill, index) => (
                             <motion.div
                                 key={index}

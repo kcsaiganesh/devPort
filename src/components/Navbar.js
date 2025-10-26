@@ -74,7 +74,7 @@ const Navbar = () => {
 
                         {/* CTA Button */}
                         <motion.a
-                            href="https://drive.google.com/file/d/14uMrcWh6-q9l4oLHL7BSOEXmzvB8KrW6/view"
+                            href="https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
