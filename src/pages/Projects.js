@@ -1,227 +1,171 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { BiLogoGithub } from 'react-icons/bi'
-import { FaExternalLinkAlt, FaCalendarAlt, FaUsers, FaCode } from 'react-icons/fa'
-import { SiReact, SiMui, SiNodedotjs, SiExpress } from 'react-icons/si'
-import Sivyathi from '../assets/sivy.png'
-import Sahaseva from '../assets/sha.png'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { BiLogoGithub } from 'react-icons/bi';
+import { FaTerminal, FaShieldAlt, FaBug, FaDatabase, FaWindows } from 'react-icons/fa';
+import { SiKalilinux } from 'react-icons/si';
 
 const Projects = () => {
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                delayChildren: 0.3,
-                staggerChildren: 0.2
-            }
-        }
+        visible: { opacity: 1, transition: { delayChildren: 0.2, staggerChildren: 0.15 } }
     };
 
     const itemVariants = {
-        hidden: { y: 50, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.6
-            }
-        }
+        hidden: { y: 30, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
     };
 
-    const projects = [
+    const cyberProjects = [
         {
             id: 1,
-            title: "Sahaseva — The Community Sharing Economy Platform",
-            period: "July 2025 - Dec 2025",
-            description: "A comprehensive web application designed to facilitate resource and skill sharing within communities. The platform promotes collaboration, sustainability, and efficient utilization of available resources through user-friendly interfaces and robust backend infrastructure.",
-            image: Sahaseva,
-            technologies: [
-                { name: "React", icon: SiReact, color: "text-blue-500" },
-                { name: "Material UI", icon: SiMui, color: "text-blue-600" },
-                { name: "Node.js", icon: SiNodedotjs, color: "text-green-600" },
-                { name: "Express", icon: SiExpress, color: "text-gray-700" }
-            ],
+            title: "Wazuh SIEM Production Lab",
+            type: "Blue Team",
+            typeColor: "text-primary-500",
+            borderColor: "border-primary-500",
+            icon: FaShieldAlt,
+            description: "Built an enterprise-grade Wazuh 4.x environment deploying agents across 10+ Windows/Linux endpoints. Developed custom detection rules for brute-force, privilege escalation, and persistence mechanisms.",
             features: [
-                "API response filtering for accurate information display",
-                "User-friendly UI for profile creation and resource listing",
-                "Robust backend API for user management and messaging",
-                "Scalable database schema designed for community growth",
-                "Real-time search and connection features"
+                "Custom detection rules mapping to MITRE ATT&CK",
+                "Integrated Grafana dashboard with MITRE coverage heatmap",
+                "Configured File Integrity Monitoring (FIM)",
+                "Log aggregation and parsing via Filebeat/Logstash"
             ],
-            githubUrl: "https://github.com/kcsaiganesh/sahaseva",
-            liveUrl: "#"
+            tech: ["Wazuh", "ELK Stack", "Grafana", "Linux VMs"],
+            githubUrl: "https://github.com/kcsaiganesh"
         },
         {
             id: 2,
-            title: "Sivyathi — Tailoring Management System",
-            period: "Previous Project",
-            description: "An online tailoring management system that automates the traditional manual tailoring process. The system improves information management for customers and enables better decision-making for tailoring businesses.",
-            image: Sivyathi,
-            technologies: [
-                { name: "React", icon: SiReact, color: "text-blue-500" },
-                { name: "Tailwind CSS", icon: FaCode, color: "text-cyan-500" }
-            ],
+            title: "Web App Security Assessment",
+            type: "Red Team",
+            typeColor: "text-accent",
+            borderColor: "border-accent",
+            icon: FaBug,
+            description: "Performed comprehensive VAPT using Burp Suite on DVWA and diverse CTF targets. Identified critical vulnerabilities and documented findings with remediation strategies.",
             features: [
-                "Online customer registration and measurement submission",
-                "Order status tracking for customers",
-                "Cost estimation and quotation system",
-                "Administrative dashboard for record management",
-                "Data security and integrity features",
-                "Paperless environment implementation"
+                "Identified SQLi, XSS, CSRF, and IDOR vulnerabilities",
+                "Documented findings using OWASP Top 10 mapping",
+                "Calculated risk levels using CVSS v3.1 scoring",
+                "Delivered professional-grade penetration testing reports"
             ],
-            githubUrl: "https://github.com/kcsaiganesh/sivyathi",
-            liveUrl: "#"
+            tech: ["Burp Suite", "OWASP ZAP", "Nmap", "Metasploit"],
+            githubUrl: "https://github.com/kcsaiganesh"
+        },
+        {
+            id: 3,
+            title: "Microsoft Sentinel KQL Library",
+            type: "Blue Team",
+            typeColor: "text-primary-500",
+            borderColor: "border-primary-500",
+            icon: FaWindows,
+            description: "Developed a robust library of 10+ Kusto Query Language (KQL) rules mapped to MITRE ATT&CK frameworks. Designed to detect anomalous behavior within Azure environments.",
+            features: [
+                "Brute-force detection identifying anomalous Event 4625 patterns",
+                "Lateral movement tracking via Event 4624",
+                "Persistence detection via Scheduled Tasks (Event 4698)",
+                "DNS tunneling and volumetric anomaly detection queries"
+            ],
+            tech: ["Microsoft Sentinel", "KQL", "Azure AD"],
+            githubUrl: "https://github.com/kcsaiganesh"
         }
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-20 pb-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
+        <div className="min-h-screen bg-cyber-900 text-gray-300 font-mono pt-20 pb-12 relative overflow-hidden">
+            {/* Cyberpunk grid background */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px] z-0"></div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="mb-16 border-l-4 border-primary-500 pl-6 py-2 bg-gradient-to-r from-primary-500/10 to-transparent mt-8"
                 >
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-                        My <span className="text-primary-500">Projects</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-100 mb-2">
+                        <span className="text-primary-500">{"//"}</span> OPERATIONS_LOG
                     </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 text-left max-w-3xl mx-auto">
-                        Showcasing my journey in building innovative web applications with modern technologies
+                    <p className="text-xl text-primary-400">
+                        Classified project repository and threat simulations
                     </p>
                 </motion.div>
 
-                {/* Projects Grid */}
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="space-y-16"
+                    className="grid lg:grid-cols-2 gap-8"
                 >
-                    {projects.map((project, index) => (
+                    {cyberProjects.map((project) => (
                         <motion.div
                             key={project.id}
                             variants={itemVariants}
-                            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border dark:border-gray-600"
+                            className={`bg-cyber-800 border-t-4 border-b border-l border-r ${project.borderColor} p-6 sm:p-8 hover:bg-cyber-800/80 transition-all group shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]`}
                         >
-                            <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-row-dense' : ''}`}>
-                                {/* Project Image */}
-                                <div className={`relative overflow-hidden ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover min-h-[400px] lg:min-h-[500px]"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                            <div className="flex justify-between items-start mb-6">
+                                <div className={`flex items-center gap-3 ${project.typeColor}`}>
+                                    <project.icon className="text-3xl" />
+                                    <span className={`font-bold border ${project.borderColor} px-2 py-0.5 text-xs tracking-widest uppercase bg-black/30`}>
+                                        [{project.type}]
+                                    </span>
                                 </div>
-
-                                {/* Project Details */}
-                                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                    <div className="flex items-center gap-2 text-primary-500 dark:text-white font-semibold mb-4">
-                                        <FaCalendarAlt />
-                                        <span>{project.period}</span>
-                                    </div>
-
-                                    <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                                        {project.title}
-                                    </h2>
-
-                                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-left">
-                                        {project.description}
-                                    </p>
-
-                                    {/* Technologies */}
-                                    <div className="mb-6">
-                                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                                            <FaCode />
-                                            Technologies Used
-                                        </h4>
-                                        <div className="flex flex-wrap gap-3">
-                                            {project.technologies.map((tech, techIndex) => (
-                                                <div
-                                                    key={techIndex}
-                                                    className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-full text-sm font-medium border dark:border-gray-600"
-                                                >
-                                                    <tech.icon className={`text-lg ${tech.color}`} />
-                                                    <span className="text-gray-700 dark:text-gray-300">{tech.name}</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Key Features */}
-                                    <div className="mb-8">
-                                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features & Achievements</h4>
-                                        <ul className="space-y-2">
-                                            {project.features.slice(0, 3).map((feature, featureIndex) => (
-                                                <li key={featureIndex} className="flex items-start gap-2 text-gray-600 dark:text-gray-300 text-left">
-                                                    <span className="text-primary-500 mt-1">•</span>
-                                                    <span>{feature}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    {/* Action Buttons */}
-                                    <div className="flex flex-wrap gap-4">
-                                        <a
-                                            href={project.githubUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 bg-gray-800 dark:bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors font-semibold"
-                                        >
-                                            <BiLogoGithub size={20} />
-                                            View Code
-                                        </a>
-                                        {project.liveUrl !== "#" && (
-                                            <a
-                                                href={project.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold"
-                                            >
-                                                <FaExternalLinkAlt size={16} />
-                                                Live Demo
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
+                                <FaTerminal className="text-gray-600 opacity-50 group-hover:opacity-100 transition-opacity" />
                             </div>
+
+                            <h2 className="text-2xl font-bold text-gray-100 mb-4">{project.title}</h2>
+                            <p className="text-gray-400 mb-6 font-sans text-sm leading-relaxed">
+                                {project.description}
+                            </p>
+
+                            <div className="mb-6">
+                                <h4 className="text-primary-300 font-semibold mb-3 border-b border-primary-500/20 pb-1 inline-block">Execute Details:</h4>
+                                <ul className="space-y-2">
+                                    {project.features.map((feature, idx) => (
+                                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-400 font-sans">
+                                            <span className={`${project.typeColor}`}>&gt;</span>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="mb-8 flex flex-wrap gap-2">
+                                {project.tech.map((t, idx) => (
+                                    <span key={idx} className="text-xs text-gray-300 bg-gray-900 border border-gray-600 px-2 py-1 tracking-wider uppercase">
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`inline-flex items-center gap-2 border ${project.borderColor} ${project.typeColor} px-4 py-2 hover:bg-${project.borderColor.replace('border-', '')}/10 transition-colors font-bold text-sm uppercase tracking-wider`}
+                            >
+                                <BiLogoGithub size={18} />
+                                View Source
+                            </a>
                         </motion.div>
                     ))}
-                </motion.div>
 
-                {/* Participation Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mt-20"
-                >
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Open Source Contributions</h2>
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border dark:border-gray-600">
-                        <div className="flex items-center gap-4 mb-4">
-                            <FaUsers className="text-2xl dark:text-white text-primary-500" />
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Hacktoberfest 2023</h3>
-                            <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
-                                October 2023
-                            </span>
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4 text-left">
-                            Actively participated in Hacktoberfest 2023, contributing to open-source projects and collaborating with the global developer community.
+                    {/* Previous Dev Projects (Archived completely as requested to remove Sahaseva/Sivyathi) -> Instead, just showing a general Cyber badge */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="bg-cyber-900 border-2 border-dashed border-gray-700 p-6 sm:p-8 flex flex-col justify-center items-center text-center opacity-70 hover:opacity-100 hover:border-primary-500 hover:text-primary-500 transition-all cursor-pointer"
+                    >
+                        <FaDatabase className="text-4xl text-gray-500 mb-4 group-hover:text-primary-500" />
+                        <h2 className="text-xl font-bold text-gray-400 mb-2 group-hover:text-primary-400">ARCHIVE.dat</h2>
+                        <p className="text-sm text-gray-500 mb-6 max-w-sm">
+                            Access previous threat intelligence logs, penetration testing scripts, and network monitoring configurations.
                         </p>
-                        <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                            <li className="text-left">• Contributed to the "Rental-log" open-source project on GitHub</li>
-                            <li className="text-left">• Developed and implemented login and registration functionalities</li>
-                            <li className="text-left">• Collaborated with international developers on code improvements</li>
-                        </ul>
-                    </div>
+                        <a href="https://github.com/kcsaiganesh" className="text-xs text-gray-400 border border-gray-600 px-3 py-1 hover:bg-gray-800 uppercase tracking-widest transition-colors">
+                            Mount Drive
+                        </a>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Projects
+export default Projects;

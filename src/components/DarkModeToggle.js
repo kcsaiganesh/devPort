@@ -1,38 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaMoon, FaSun } from 'react-icons/fa';
-import { useTheme } from '../contexts/ThemeContext';
+import { FaShieldAlt } from 'react-icons/fa';
 
 const DarkModeToggle = () => {
-    const { isDarkMode, toggleTheme } = useTheme();
-
+    // We enforce dark mode in the cyberpunk theme, so this is now a decorative "Security Shield" status indicator.
     return (
-        <motion.button
-            onClick={toggleTheme}
+        <motion.div
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             className={`
-                relative p-2 rounded-full border-2 transition-all duration-300
-                ${isDarkMode
-                    ? 'bg-gray-800 border-yellow-400 text-yellow-400'
-                    : 'bg-yellow-100 border-gray-600 text-gray-600'
-                }
-                hover:shadow-lg
+                relative p-2 rounded-full border-2 border-primary-500 text-primary-500
+                bg-cyber-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]
+                flex items-center justify-center
             `}
-            aria-label="Toggle dark mode"
+            title="Secure Connection Active"
         >
             <motion.div
-                initial={false}
-                animate={{ rotate: isDarkMode ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-            >
-                {isDarkMode ? (
-                    <FaSun className="w-5 h-5" />
-                ) : (
-                    <FaMoon className="w-5 h-5" />
-                )}
-            </motion.div>
-        </motion.button>
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border border-primary-500 opacity-30 border-t-transparent"
+            />
+            <FaShieldAlt className="w-5 h-5 animate-pulse-glow" />
+        </motion.div>
     );
 };
 

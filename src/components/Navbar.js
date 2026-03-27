@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { FaHome, FaBriefcase, FaEnvelope, FaFileAlt, FaBars, FaTimes } from 'react-icons/fa'
-import DarkModeToggle from './DarkModeToggle'
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaHome, FaShieldAlt, FaEnvelope, FaTerminal, FaBars, FaTimes } from 'react-icons/fa';
+import DarkModeToggle from './DarkModeToggle';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,10 +18,10 @@ const Navbar = () => {
     }, []);
 
     const navItems = [
-        { href: '/', label: 'Home', icon: FaHome },
-        { href: '/projects', label: 'Projects', icon: FaBriefcase },
-        { href: '/resume', label: 'Resume', icon: FaFileAlt },
-        { href: '/contact', label: 'Contact', icon: FaEnvelope },
+        { href: '/', label: 'SYS.HOME', icon: FaHome },
+        { href: '/projects', label: 'OPERATIONS', icon: FaShieldAlt },
+        { href: '/resume', label: 'LOGS.RESUME', icon: FaTerminal },
+        { href: '/contact', label: 'COMMS', icon: FaEnvelope },
     ];
 
     return (
@@ -30,9 +30,9 @@ const Navbar = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.6 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700'
-                : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
-                }`}
+                ? 'bg-cyber-900/90 backdrop-blur-md border-b text-primary-500 border-primary-500/50 shadow-[0_0_15px_rgba(0,212,255,0.2)]'
+                : 'bg-cyber-900/50 backdrop-blur-sm text-primary-500 border-b border-transparent'
+                } font-mono`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
@@ -41,13 +41,13 @@ const Navbar = () => {
                         href="/"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center"
+                        className="flex items-center group"
                     >
-                        <div className="bg-primary-500 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg">
-                            SG
+                        <div className="bg-transparent border-2 border-primary-500 text-primary-500 w-12 h-10 rounded flex items-center justify-center font-bold text-lg group-hover:bg-primary-500 group-hover:text-cyber-900 group-hover:shadow-[0_0_15px_rgba(0,212,255,0.8)] transition-all">
+                            SG_
                         </div>
-                        <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
-                            Sai Ganesh
+                        <span className="ml-3 text-xl font-bold text-gray-200 hidden sm:block group-hover:text-primary-500 transition-colors">
+                            <span className="text-primary-500">{"<"}</span>Sai Ganesh<span className="text-primary-500">{"/>"}</span>
                         </span>
                     </motion.a>
 
@@ -61,27 +61,27 @@ const Navbar = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ y: -2 }}
-                                className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 relative group"
+                                className="flex items-center gap-2 text-gray-400 hover:text-primary-500 hover:animate-pulse-glow font-medium transition-colors duration-200 relative group"
                             >
                                 <item.icon className="text-sm" />
                                 <span>{item.label}</span>
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full"></span>
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-200 group-hover:w-full shadow-[0_0_8px_rgba(0,212,255,1)]"></span>
                             </motion.a>
                         ))}
 
-                        {/* Dark Mode Toggle */}
+                        {/* Dark Mode Toggle (Decorative Shield) */}
                         <DarkModeToggle />
 
                         {/* CTA Button */}
                         <motion.a
-                            href="https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link"
+                            href="https://drive.google.com/file/d/1MxaJQRQJeqIcOanYjHil9VNkyBXmr7CX/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors font-medium"
+                            className="bg-transparent border border-primary-500 text-primary-500 px-4 py-2 hover:bg-primary-500 hover:text-cyber-900 transition-colors font-bold uppercase tracking-wider shadow-[0_0_10px_rgba(0,212,255,0.3)] hover:shadow-[0_0_20px_rgba(0,212,255,0.8)]"
                         >
-                            Download CV
+                            [ INIT_DL ]
                         </motion.a>
                     </div>
 
@@ -90,7 +90,7 @@ const Navbar = () => {
                         <DarkModeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-700 dark:text-gray-300 hover:text-primary-500 focus:outline-none"
+                            className="text-primary-500 focus:outline-none hover:animate-pulse-glow"
                         >
                             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
                         </button>
@@ -105,7 +105,7 @@ const Navbar = () => {
                         height: isOpen ? 'auto' : 0
                     }}
                     transition={{ duration: 0.3 }}
-                    className="md:hidden overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+                    className="md:hidden overflow-hidden bg-cyber-900 border-t border-primary-500/30"
                 >
                     <div className="px-2 pt-2 pb-3 space-y-1">
                         {navItems.map((item, index) => (
@@ -116,7 +116,7 @@ const Navbar = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 onClick={() => setIsOpen(false)}
-                                className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-gray-800 px-3 py-2 rounded-md font-medium transition-colors"
+                                className="flex items-center gap-3 text-gray-400 hover:text-primary-500 hover:bg-primary-500/10 px-3 py-2 border-l-2 border-transparent hover:border-primary-500 font-medium transition-all"
                             >
                                 <item.icon />
                                 <span>{item.label}</span>
@@ -124,23 +124,23 @@ const Navbar = () => {
                         ))}
 
                         <motion.a
-                            href="https://drive.google.com/file/d/1im4uthZy9blsx8gZrKvCD-X32C2JfMP_/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1MxaJQRQJeqIcOanYjHil9VNkyBXmr7CX/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: navItems.length * 0.1 }}
                             onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-3 bg-primary-500 text-white hover:bg-primary-600 px-3 py-2 rounded-md font-medium transition-colors mx-3 mt-4"
+                            className="flex items-center gap-3 bg-primary-500/20 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-cyber-900 px-3 py-2 font-bold transition-all mx-3 mt-4"
                         >
-                            <FaFileAlt />
-                            <span >Download CV</span>
+                            <FaTerminal />
+                            <span>EXEC_DOWNLOAD</span>
                         </motion.a>
                     </div>
                 </motion.div>
             </div>
         </motion.nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

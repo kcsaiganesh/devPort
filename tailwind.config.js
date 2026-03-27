@@ -6,68 +6,56 @@ module.exports = {
     extend: {
       colors: {
         'primary': {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#e0f7ff',
+          100: '#b3ebff',
+          200: '#80dfff',
+          300: '#4dd3ff',
+          400: '#26c9ff',
+          500: '#00bfff', // electric cyan
+          600: '#0099cc',
+          700: '#007399',
+          800: '#004d66',
+          900: '#002633',
         },
-        'secondary': '#1D267D',
-        'tertiary': '#D4ADFC',
-        'accent': '#0ea5e9',
+        'accent': '#ff0040', // neon red
         'cyber': {
           50: '#f0f4ff',
           100: '#e0e9ff',
           200: '#c7d2fe',
           300: '#a5b4fc',
           400: '#818cf8',
-          500: '#6366f1',
+          500: '#00d4ff', // cyan
           600: '#4f46e5',
           700: '#4338ca',
           800: '#3730a3',
-          900: '#312e81',
+          900: '#0a0e17', // deep navy dark
         },
-        'neutral': {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+        'gray': {
+          800: '#111827',
+          900: '#0a0a0a',
         }
       },
       textColor: {
-        'primary': '#ffffff',
+        'primary': '#00d4ff',
         'secondary': '#e0e0e0',
         'tertiary': '#b3b3b3',
-        'unique': '#0C134F'
+        'danger': '#ff0040'
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'display': ['Poppins', 'system-ui', 'sans-serif'],
-        'mono': ['Fira Code', 'Monaco', 'Consolas', 'monospace'],
+        'sans': ['JetBrains Mono', 'Fira Code', 'system-ui', 'sans-serif'],
+        'display': ['JetBrains Mono', 'system-ui', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
-        'bounce-slow': 'bounce 2s infinite',
-        'float': 'float 3s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
+        'glow-red': 'glowRed 2s ease-in-out infinite alternate',
         'matrix': 'matrix 20s linear infinite',
-        'blob': 'blob 7s infinite',
-      },
-      animationDelay: {
-        '2000': '2s',
-        '4000': '4s',
+        'scanline': 'scanline 8s linear infinite',
+        'pulse-glow': 'pulseGlow 2s infinite',
+        'typing': 'typing 2s steps(40, end)',
+        'blink': 'blink 1s step-end infinite',
       },
       keyframes: {
         fadeIn: {
@@ -78,31 +66,33 @@ module.exports = {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
         glow: {
-          'from': { boxShadow: '0 0 5px #0ea5e9, 0 0 10px #0ea5e9, 0 0 15px #0ea5e9' },
-          'to': { boxShadow: '0 0 10px #0ea5e9, 0 0 20px #0ea5e9, 0 0 30px #0ea5e9' },
+          'from': { boxShadow: '0 0 5px #00d4ff, 0 0 10px #00d4ff', textShadow: '0 0 2px #00d4ff' },
+          'to': { boxShadow: '0 0 10px #00d4ff, 0 0 20px #00d4ff', textShadow: '0 0 5px #00d4ff' },
+        },
+        glowRed: {
+          'from': { boxShadow: '0 0 5px #ff0040, 0 0 10px #ff0040', textShadow: '0 0 2px #ff0040' },
+          'to': { boxShadow: '0 0 10px #ff0040, 0 0 20px #ff0040', textShadow: '0 0 5px #ff0040' },
         },
         matrix: {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100vh)' },
         },
-        blob: {
-          '0%': {
-            transform: 'translate(0px, 0px) scale(1)',
-          },
-          '33%': {
-            transform: 'translate(30px, -50px) scale(1.1)',
-          },
-          '66%': {
-            transform: 'translate(-20px, 20px) scale(0.9)',
-          },
-          '100%': {
-            transform: 'translate(0px, 0px) scale(1)',
-          },
+        scanline: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 15px #00d4ff' },
+          '50%': { opacity: '0.8', boxShadow: '0 0 5px #00d4ff' },
+        },
+        typing: {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: '#00d4ff' },
         }
       }
     },

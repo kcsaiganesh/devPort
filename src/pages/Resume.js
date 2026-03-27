@@ -1,309 +1,248 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaDownload, FaEye, FaUser, FaGraduationCap, FaBriefcase, FaCertificate, FaCode, FaLanguage, FaAward, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-import { SiOwasp, SiPython } from 'react-icons/si';
-import { FaLock, FaCrosshairs } from 'react-icons/fa'; // Used FaCrosshairs as an alternative to SiNmap
-import { BiLogoJavascript, BiLogoGithub } from 'react-icons/bi';
-import Profile from '../assets/saiGaneshProfile.jpg'; // ✅ CORRECT: Importing the default URL export
+import { FaDownload, FaEye, FaUser, FaTerminal, FaShieldAlt, FaBriefcase, FaCertificate, FaLanguage, FaAward, FaCode, FaWindows } from 'react-icons/fa';
+import { SiKalilinux, SiPython } from 'react-icons/si';
+import Profile from '../assets/saiGaneshProfile.jpg';
+
 const Resume = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+    visible: { opacity: 1, transition: { delayChildren: 0.2, staggerChildren: 0.1 } }
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
   };
 
-  const skills = [
-    // --- Cybersecurity Skills ---
-    { name: "AppSec (OWASP)", icon: SiOwasp, level: 90 },
-    { name: "Vulnerability Mgmt", icon: FaLock, level: 85 },
-    {
-      name: "Penetration Testing",
-      icon: FaCrosshairs, // Corrected: Using a general 'targeting' icon as SiNmap was causing an error
-      level: 80
-    },
-
-    // --- Hybrid/Scripting Skills ---
-    { name: "Python", icon: SiPython, level: 90 },
-
-    // --- Core Development & Tooling ---
-    { name: "JavaScript", icon: BiLogoJavascript, level: 75 },
-    { name: "Git", icon: BiLogoGithub, level: 80 }
+  const technicalCompetencies = [
+    { name: "SIEM Operations (Wazuh, Sentinel)", level: 90 },
+    { name: "Incident Response & Triage", level: 85 },
+    { name: "Log Analysis (Windows/Linux)", level: 88 },
+    { name: "Vulnerability Assessment (VAPT)", level: 80 },
+    { name: "MITRE ATT&CK Framework", level: 90 },
+    { name: "KQL & Python Automation", level: 85 }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-20 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-cyber-900 text-gray-300 font-mono pt-20 pb-12 relative">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0)_50%,rgba(0,212,255,0.02)_50%)] bg-[length:100%_4px] pointer-events-none"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            My <span className="text-primary-500">Resume</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 text-left max-w-3xl mx-auto mb-8">
-            A comprehensive overview of my professional journey, skills, and achievements in web development and cybersecurity.
+          <div className="inline-block border border-primary-500 bg-primary-500/10 px-6 py-2 mb-6 shadow-[0_0_10px_rgba(0,212,255,0.3)]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-100 uppercase tracking-widest">
+              PROFILE_<span className="text-primary-500">RESUME</span>
+            </h1>
+          </div>
+          <p className="text-lg text-primary-400 max-w-3xl mx-auto tracking-wide">
+            SOC Analyst L1 | Security Operations | Threat Hunting
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link" className="flex items-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold shadow-lg">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <a href="https://drive.google.com/file/d/1MxaJQRQJeqIcOanYjHil9VNkyBXmr7CX/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary-500 text-cyber-900 px-6 py-3 hover:bg-primary-400 transition-colors font-bold uppercase shadow-[0_0_15px_rgba(0,212,255,0.5)]">
               <FaDownload />
-              Download Resume
+              Download_PDF
             </a>
-            <a href='https://drive.google.com/file/d/1BHBVKwzZNLx_jFTJ8iGiVlp6ZQKv_mc1/view?usp=drive_link' className="flex items-center gap-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-semibold shadow-lg">
+            <a href="https://drive.google.com/file/d/1MxaJQRQJeqIcOanYjHil9VNkyBXmr7CX/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-transparent border border-primary-500 text-primary-500 px-6 py-3 hover:bg-primary-500/10 transition-colors font-bold uppercase">
               <FaEye />
-              View Online
+              View_Access
             </a>
           </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Personal Info & Photo */}
+          {/* Sidebar / Left Column */}
           <motion.div
-            variants={itemVariants}
+            variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            className="lg:col-span-1"
+            className="lg:col-span-1 space-y-8"
           >
-            {/* Profile Photo */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600 mb-8">
+            {/* Identity Card */}
+            <motion.div variants={itemVariants} className="bg-cyber-800 p-6 border-t-4 border-primary-500 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
               <div className="text-center">
-                <div className="relative inline-block">
+                <div className="relative inline-block border-2 border-primary-500 p-1 mb-4">
                   <img
-                    src={Profile} // This usage is correct!
+                    src={Profile}
                     alt="Sai Ganesh KC"
-                    className="w-32 h-32 rounded-full object-cover mx-auto shadow-lg border-4 border-primary-500"
+                    className="w-32 h-32 object-cover grayscale opacity-80"
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-primary-500 text-white rounded-full p-2">
+                  <div className="absolute inset-0 bg-primary-500/20 pointer-events-none mix-blend-overlay"></div>
+                  <div className="absolute -bottom-3 -right-3 bg-cyber-900 border border-primary-500 text-primary-500 p-2">
                     <FaUser size={16} />
                   </div>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-4">Sai Ganesh KC</h2>
-                <p className="text-primary-500 font-semibold">Full Stack Developer</p>
+                <h2 className="text-2xl font-bold text-gray-100 uppercase tracking-wider">Sai Ganesh KC</h2>
+                <div className="text-primary-500 font-bold text-sm bg-primary-500/10 py-1 mt-2 mb-4 border border-primary-500/30">ID: SOC_L1_ANALYST</div>
+                <div className="text-xs text-gray-400 text-left space-y-2 font-sans mt-4">
+                  <div className="flex justify-between border-b border-gray-700 pb-1"><span className="font-bold text-gray-300">LOC:</span> Bengaluru, IN</div>
+                  <div className="flex justify-between border-b border-gray-700 pb-1"><span className="font-bold text-gray-300">MAIL:</span> kcsaiganesh@gmail.com</div>
+                  <div className="flex justify-between"><span className="font-bold text-gray-300">TEL:</span> +91 8310048387</div>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Contact Info */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600 mb-8">
-              <div className="flex items-center gap-3 mb-6">
-                <FaUser className="text-2xl text-primary-500 dark:text-white" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Contact Info</h2>
+            {/* Tactical Skills */}
+            <motion.div variants={itemVariants} className="bg-cyber-800 p-6 border border-gray-700">
+              <div className="flex items-center gap-3 mb-6 border-b border-primary-500/30 pb-2">
+                <FaCode className="text-primary-500" />
+                <h2 className="text-lg font-bold text-gray-100 uppercase tracking-widest">Sys_Skills</h2>
               </div>
-
               <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <FaEnvelope className="text-lg text-primary-500 dark:text-white" />
-                  <div>
-                    {/* <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3> */}
-                    <p className="text-gray-700 dark:text-gray-200">kcsaiganesh@gmail.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaPhone className="text-lg text-primary-500 dark:text-white" />
-                  <div>
-                    {/* <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3> */}
-                    <p className="text-gray-700 dark:text-gray-200">(+91) 8310048387</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaMapMarkerAlt className="text-lg text-primary-500 dark:text-white" />
-                  <div>
-                    {/* <h3 className="font-semibold text-gray-900 dark:text-white">Location</h3> */}
-                    <p className="text-gray-700 dark:text-gray-200">Bangalore, Karnataka, India</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Skills */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-              <div className="flex items-center gap-3 mb-6">
-                <FaCode className="text-2xl text-primary-500 dark:text-white" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Technical Skills</h2>
-              </div>
-
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
+                {technicalCompetencies.map((skill, index) => (
                   <div key={index}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <skill.icon className="text-lg text-primary-500 dark:text-white" />
-                        <span className="font-medium text-gray-900 dark:text-white">{skill.name}</span>
-                      </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-300">{skill.level}%</span>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">{skill.name}</span>
+                      <span className="text-xs text-primary-500">{skill.level}%</span>
                     </div>
-                    <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div
-                        className="bg-primary-500 rounded-full h-2 transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                    <div className="bg-cyber-900 border border-gray-700 h-2 w-full">
+                      <div className="bg-primary-500 h-full" style={{ width: `${skill.level}%` }}></div>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
+
+            {/* Clearance & Lang */}
+            <motion.div variants={itemVariants} className="bg-cyber-800 p-6 border border-gray-700">
+              <div className="flex items-center gap-3 mb-6 border-b border-primary-500/30 pb-2">
+                <FaLanguage className="text-primary-500" />
+                <h2 className="text-lg font-bold text-gray-100 uppercase tracking-widest">Linguistics</h2>
+              </div>
+              <ul className="text-sm font-sans space-y-2 text-gray-400">
+                <li className="flex justify-between"><span className="text-primary-500 font-bold">EN</span> Fluent</li>
+                <li className="flex justify-between"><span className="text-primary-500 font-bold">HI</span> Conversational</li>
+                <li className="flex justify-between"><span className="text-primary-500 font-bold">KN</span> Native</li>
+                <li className="flex justify-between"><span className="text-primary-500 font-bold">TE</span> Native</li>
+              </ul>
+            </motion.div>
           </motion.div>
 
-          {/* Main Content */}
+          {/* Main Content Column */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             className="lg:col-span-2 space-y-8"
           >
-            {/* Experience */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-              <div className="flex items-center gap-3 mb-6">
-                <FaBriefcase className="text-2xl text-primary-500 dark:text-white" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Experience</h2>
+            {/* Experience Block */}
+            <motion.div variants={itemVariants} className="bg-cyber-800 border border-gray-700 p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-8 border-b-2 border-primary-500 pb-2 inline-flex">
+                <FaBriefcase className="text-2xl text-primary-500" />
+                <h2 className="text-2xl font-bold text-gray-100 uppercase tracking-widest">Active_Duty</h2>
               </div>
 
-              <div className="space-y-6">
-                <motion.div variants={itemVariants} className="border-l-4 border-primary-500 pl-6">
-                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-2">
+              <div className="space-y-8">
+                <div className="relative pl-6 border-l border-primary-500">
+                  <span className="absolute -left-[5px] top-0 h-2 w-2 bg-primary-500 shadow-[0_0_10px_rgba(0,212,255,1)]"></span>
+                  <div className="flex flex-wrap justify-between items-start mb-2">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">Frontend Developer Intern</h3>
-                      <p className="text-primary-600 dark:text-gray-400 font-semibold">Tymtix Solutions LLP, Bengaluru</p>
+                      <h3 className="text-xl font-bold text-primary-400 uppercase">SOC Analyst L1</h3>
+                      <p className="text-gray-300 font-semibold font-sans">Xpereos Technology, Bengaluru</p>
                     </div>
-                    <span className="bbg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
-                      March 2024 - June 2024
+                    <span className="bg-primary-500/10 border border-primary-500 text-primary-500 px-3 py-1 text-xs font-bold mt-2 md:mt-0 uppercase">
+                      Sep 2025 - Present
                     </span>
                   </div>
-                  <ul className="text-gray-700 dark:text-gray-200 space-y-1 text-left">
-                    <li>• Developed responsive web pages using Next.js and Tailwind CSS</li>
-                    <li>• Integrated third-party libraries and APIs for enhanced functionality</li>
-                    <li>• Improved real-time performance by 40% through seamless API integration</li>
-                    <li>• Reduced page load times by 25%, significantly improving user engagement</li>
+                  <ul className="text-sm text-gray-400 space-y-3 font-sans mt-4">
+                    <li className="flex gap-2"><span className="text-primary-500">&gt;</span> <span className="flex-1"><strong>Real-time Monitoring:</strong> Continuously monitor 50+ endpoints using Wazuh SIEM; identify and classify security events; escalate to L2.</span></li>
+                    <li className="flex gap-2"><span className="text-primary-500">&gt;</span> <span className="flex-1"><strong>Incident Triage:</strong> Triage 40+ security alerts daily analyzing Windows/Linux Event Logs; distinguish true positives.</span></li>
+                    <li className="flex gap-2"><span className="text-primary-500">&gt;</span> <span className="flex-1"><strong>Threat Detection:</strong> Deploy 15+ custom Wazuh detection rules targeting MITRE ATT&CK (T1078, T1053); reduce false positives by 40%.</span></li>
+                    <li className="flex gap-2"><span className="text-primary-500">&gt;</span> <span className="flex-1"><strong>Response & VAPT:</strong> Assist in phishing/malware IR. Conduct internal VAPT on web applications isolating OWASP Top 10 vulnerabilities.</span></li>
                   </ul>
-                </motion.div>
+                </div>
 
-                <motion.div variants={itemVariants} className="border-l-4 border-primary-500 pl-6">
-                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-2">
+                <div className="relative pl-6 border-l border-gray-600">
+                  <span className="absolute -left-[5px] top-0 h-2 w-2 bg-gray-600"></span>
+                  <div className="flex flex-wrap justify-between items-start mb-2">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">Marketing & Procurement Executive</h3>
-                      <p className="text-primary-600 dark:text-gray-400 font-semibold">GRKMS Pvt Ltd, Bengaluru</p>
+                      <h3 className="text-xl font-bold text-gray-300 uppercase">Frontend Developer Intern</h3>
+                      <p className="text-gray-400 font-semibold font-sans">Tymtix Solutions LLP, Bengaluru</p>
                     </div>
-                    <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
+                    <span className="border border-gray-600 text-gray-500 px-3 py-1 text-xs font-bold mt-2 md:mt-0 uppercase">
+                      Mar 2024 - Jun 2024
+                    </span>
+                  </div>
+                  <ul className="text-sm text-gray-500 space-y-2 font-sans mt-2">
+                    <li className="flex gap-2"><span className="text-gray-600">&gt;</span> <span>Engineered responsive web applications utilizing Next.js and Tailwind CSS.</span></li>
+                    <li className="flex gap-2"><span className="text-gray-600">&gt;</span> <span>Optimized real-time API integrations reducing latency and dropping load times by 25%.</span></li>
+                  </ul>
+                </div>
+
+                <div className="relative pl-6 border-l border-gray-600">
+                  <span className="absolute -left-[5px] top-0 h-2 w-2 bg-gray-600"></span>
+                  <div className="flex flex-wrap justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-300 uppercase">Marketing & Procurement Exec</h3>
+                      <p className="text-gray-400 font-semibold font-sans">GRKMS Pvt Ltd, Bengaluru</p>
+                    </div>
+                    <span className="border border-gray-600 text-gray-500 px-3 py-1 text-xs font-bold mt-2 md:mt-0 uppercase">
                       Jan 2025 - Apr 2025
                     </span>
                   </div>
-                  <ul className="text-gray-700 dark:text-gray-200 space-y-1 text-left">
-                    <li>• Utilized advanced data mining techniques to identify high-potential leads</li>
-                    <li>• Created tailored, impactful proposals based on detailed client needs analysis</li>
-                    <li>• Designed and executed targeted email marketing campaigns</li>
-                    <li>• Built and maintained strong client relationships through consistent engagement</li>
-                  </ul>
-                </motion.div>
+                </div>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Certification Block */}
+            <motion.div variants={itemVariants} className="bg-cyber-800 border border-gray-700 p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-8 border-b-2 border-primary-500 pb-2 inline-flex">
+                <FaCertificate className="text-2xl text-primary-500" />
+                <h2 className="text-2xl font-bold text-gray-100 uppercase tracking-widest">Validations</h2>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="border border-green-500/30 bg-cyber-900 p-4 hover:border-green-500/80 transition-colors">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FaAward className="text-green-500 text-xl" />
+                    <h3 className="font-bold text-sm uppercase text-gray-200">Google CyberSec Prof.</h3>
+                  </div>
+                  <p className="text-xs text-gray-500 font-sans mt-2">[Verified_2024]</p>
+                </div>
+
+                <div className="border border-accent/30 bg-cyber-900 p-4 hover:border-accent/80 transition-colors">
+                  <div className="flex items-center gap-3 mb-2">
+                    <SiKalilinux className="text-accent text-xl" />
+                    <h3 className="font-bold text-sm uppercase text-gray-200">Offensive Pentesting</h3>
+                  </div>
+                  <p className="text-xs text-gray-500 font-sans mt-2">[Verified_2024]</p>
+                </div>
+
+                <div className="border border-blue-500/30 bg-cyber-900 p-4 hover:border-blue-500/80 transition-colors">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FaWindows className="text-blue-500 text-xl" />
+                    <h3 className="font-bold text-sm uppercase text-gray-200">Microsoft SC-200</h3>
+                  </div>
+                  <p className="text-xs text-gray-500 font-sans mt-2">[Active_Credential]</p>
+                </div>
+
+                <div className="border border-yellow-500/30 bg-cyber-900 p-4 hover:border-yellow-500/80 transition-colors">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FaShieldAlt className="text-yellow-500 text-xl" />
+                    <h3 className="font-bold text-sm uppercase text-gray-200">CompTIA Security+</h3>
+                  </div>
+                  <p className="text-xs text-gray-500 font-sans mt-2 animate-pulse">[Training_In_Progress]</p>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Education */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-              <div className="flex items-center gap-3 mb-6">
-                <FaGraduationCap className="text-2xl text-primary-500 dark:text-white" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Education</h2>
+            <motion.div variants={itemVariants} className="bg-cyber-800 border border-t-0 border-l-[4px] border-l-gray-500 border-r border-b border-gray-700 p-6">
+              <h3 className="text-sm text-gray-400 uppercase tracking-widest mb-1">Academic Background</h3>
+              <h4 className="text-lg font-bold text-gray-100">Bachelor of Computer Applications (BCA)</h4>
+              <p className="text-primary-500 text-sm mb-2">Kuvempu First Grade College | Bangalore University</p>
+              <div className="flex justify-between items-center text-xs font-sans text-gray-400">
+                <span>Class of 2023</span>
+                <span className="bg-gray-800 border border-gray-600 px-2 py-1">CGPA: 8.54</span>
               </div>
+            </motion.div>
 
-              <motion.div variants={itemVariants} className="border-l-4 border-primary-500 pl-6">
-                <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-2">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Bachelor of Computer Applications</h3>
-                    <p className="text-primary-600 dark:text- font-semibold dark:text-white">Kuvempu First Grade College, Bangalore</p>
-                    <p className="text-gray-600 dark:text-white">Bangalore University</p>
-                  </div>
-                  <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-full text-sm font-medium">
-                    Feb 2020 - Aug 2023
-                  </span>
-                </div>
-                <div className="bg-primary-50 dark:bg-primary-900/30 p-4 rounded-lg mt-2">
-                  <p className="text-primary-700 dark:text-white font-semibold">CGPA: 8.54 - First Class Exemplary</p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Certifications */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-              <div className="flex items-center gap-3 mb-6">
-                <FaCertificate className="text-2xl text-primary-500 dark:text-white" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Certifications</h2>
-              </div>
-
-              <div className="space-y-4">
-                <motion.div variants={itemVariants} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                  <FaAward className="text-2xl text-green-500 mt-1" />
-                  <div className='flex-1 justify-between'>
-                    <h3 className="font-bold text-gray-900 dark:text-white">Frontend Developer Internship</h3>
-                    <p className="text-gray-700 dark:text-gray-200">@Nextrive (3 Months)</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Certificate available upon request</p>
-                  </div>
-                </motion.div>
-
-                <motion.div variants={itemVariants} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                  <FaAward className="text-2xl text-red-500 mt-1" />
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 dark:text-white">Google Cybersecurity Professional</h3>
-                    <p className="text-gray-700 dark:text-gray-200">Completed via Coursera</p>
-                    <div className="mt-3">
-                      <div
-                        data-iframe-width="180"
-                        data-iframe-height="220"
-                        data-share-badge-id="1f55b2a7-b8df-4d38-a97c-dd4de19a2a5a"
-                        data-share-badge-host="https://www.credly.com"
-                      ></div>
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                      <a
-                        href="https://www.credly.com/users/sai-ganesh-kc"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-500 hover:text-primary-600 underline"
-                      >
-                        View on Credly
-                      </a>
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Languages */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-              <div className="flex items-center gap-3 mb-6">
-                <FaLanguage className="text-2xl text-primary-500 dark:text-white" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Languages</h2>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { name: 'English', level: 'Fluent' },
-                  { name: 'Hindi', level: 'Conversational' },
-                  { name: 'Kannada', level: 'Native' },
-                  { name: 'Telugu', level: 'Native' }
-                ].map((language, index) => (
-                  <motion.div key={index} variants={itemVariants} className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                    <h3 className="font-semibold text-gray-900 dark:text-white">{language.name}</h3>
-                    <p className="text-sm text-gray-700 dark:text-gray-200">{language.level}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

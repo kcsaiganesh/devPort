@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaLanguage } from 'react-icons/fa'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaTerminal } from 'react-icons/fa';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -20,100 +20,97 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
-        alert('Thank you for your message! I will get back to you soon.');
+        alert('Transmission recorded. Target secured. Will establish comms shortly.');
         setFormData({ name: '', email: '', subject: '', message: '' });
     };
 
     const socialLinks = [
         {
-            name: 'Twitter',
-            url: 'https://twitter.com/sai_ganesh_KC/',
-            icon: FaTwitter,
-            color: 'bg-blue-500 hover:bg-blue-600'
-        },
-        {
             name: 'GitHub',
             url: 'https://github.com/kcsaiganesh',
             icon: FaGithub,
-            color: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600'
+            color: 'hover:text-white',
+            border: 'hover:border-white'
         },
         {
             name: 'LinkedIn',
-            url: 'https://www.linkedin.com/in/kc-sai-g-b150aa201',
+            url: 'https://linkedin.com/in/saiganesh',
             icon: FaLinkedin,
-            color: 'bg-blue-600 hover:bg-blue-700'
+            color: 'hover:text-blue-500',
+            border: 'hover:border-blue-500'
         },
         {
-            name: 'Email',
-            url: 'mailto:kcsaiganesh@gmail.com',
-            icon: FaEnvelope,
-            color: 'bg-primary-500 hover:bg-primary-600'
+            name: 'Twitter',
+            url: 'https://twitter.com/sai_ganesh_KC/',
+            icon: FaTwitter,
+            color: 'hover:text-blue-400',
+            border: 'hover:border-blue-400'
         }
-    ];
-
-    const languages = [
-        { name: 'English', level: 'Fluent' },
-        { name: 'Hindi', level: 'Native' },
-        { name: 'Kannada', level: 'Native' },
-        { name: 'Telugu', level: 'Conversational' }
     ];
 
     const contactInfo = [
         {
             icon: FaEnvelope,
-            label: 'Email',
+            label: 'SECURE_MAIL',
             value: 'kcsaiganesh@gmail.com',
             href: 'mailto:kcsaiganesh@gmail.com'
         },
         {
             icon: FaPhone,
-            label: 'Phone',
+            label: 'COMMLINK',
             value: '(+91) 8310048387',
             href: 'tel:+918310048387'
         },
         {
             icon: FaMapMarkerAlt,
-            label: 'Location',
-            value: 'Bangalore, Karnataka, India',
+            label: 'COORDINATES',
+            value: 'Bengaluru, Karnataka, IN',
             href: null
         }
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-20 pb-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-cyber-900 text-gray-300 font-mono pt-20 pb-12 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="text-center mb-16 mt-8"
                 >
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-                        Let's <span className="text-primary-500">Connect</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-100 mb-4 tracking-widest uppercase">
+                        ESTABLISH_<span className="text-primary-500 glitch-text" data-text="LINK">LINK</span>
                     </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 text-left max-w-3xl mx-auto">
-                        I'm always open to discussing new opportunities, collaborations, or just having a friendly chat about technology and innovation.
+                    <p className="text-xl text-primary-400/80 max-w-2xl mx-auto border-b border-primary-500/30 pb-4 inline-block">
+                        Open for SOC Analyst roles. Transmit your query below.
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
-                    <div className="space-y-8">
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h2>
+                <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+                    
+                    {/* Console Info Block */}
+                    <div className="lg:col-span-2 space-y-8">
+                        <div className="bg-cyber-800 border-2 border-primary-500/50 p-6 relative shadow-[0_0_15px_rgba(0,212,255,0.1)]">
+                            <div className="absolute top-0 right-0 p-1 border-b border-l border-primary-500/50 text-xs text-primary-500 bg-cyber-900">
+                                NODE.01
+                            </div>
+                            <h2 className="text-xl font-bold text-gray-100 mb-6 flex items-center gap-2 uppercase tracking-wider">
+                                <FaTerminal className="text-primary-500" /> Ping_Target
+                            </h2>
                             <div className="space-y-6">
                                 {contactInfo.map((info, index) => (
-                                    <div key={index} className="flex items-center gap-4">
-                                        <div className="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
-                                            <info.icon className="text-primary-500 text-xl" />
+                                    <div key={index} className="flex flex-col group">
+                                        <div className="flex items-center gap-2 text-primary-500 mb-1">
+                                            <span className="text-xs">&gt;</span>
+                                            <span className="text-xs font-bold uppercase tracking-widest">{info.label}</span>
                                         </div>
-                                        <div>
-                                            <p className="font-semibold text-gray-900 dark:text-white">{info.label}</p>
+                                        <div className="pl-4 border-l-2 border-gray-700 group-hover:border-primary-500 transition-colors">
                                             {info.href ? (
-                                                <a href={info.href} className="text-gray-600 dark:text-gray-300 hover:text-primary-500 transition-colors">
+                                                <a href={info.href} className="text-gray-300 hover:text-white transition-colors">
                                                     {info.value}
                                                 </a>
                                             ) : (
-                                                <p className="text-gray-600 dark:text-gray-300">{info.value}</p>
+                                                <p className="text-gray-300">{info.value}</p>
                                             )}
                                         </div>
                                     </div>
@@ -121,77 +118,72 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                                <FaLanguage className="text-primary-500" />
-                                Languages
-                            </h2>
-                            <div className="grid grid-cols-2 gap-4">
-                                {languages.map((language, index) => (
-                                    <div key={index} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border dark:border-gray-600">
-                                        <h3 className="font-semibold text-gray-900 dark:text-white">{language.name}</h3>
-                                        <p className="text-sm text-gray-600 dark:text-gray-300">{language.level}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="space-y-8">
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Connect With Me</h2>
-                            <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-cyber-800 p-6 border border-gray-700 group hover:border-primary-500 transition-colors">
+                            <h2 className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest group-hover:text-primary-500 transition-colors">Net_Topology_Links</h2>
+                            <div className="flex gap-4">
                                 {socialLinks.map((social, index) => (
                                     <a
                                         key={index}
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={social.color + ' text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md text-center'}
+                                        className={`flex items-center justify-center w-12 h-12 border-2 border-gray-600 bg-cyber-900 text-gray-400 transition-all duration-300 ${social.border} ${social.color} hover:-translate-y-1 hover:shadow-lg`}
                                     >
-                                        <social.icon className="text-2xl mx-auto mb-2" />
-                                        <span className="text-sm font-semibold">{social.name}</span>
+                                        <social.icon className="text-xl" />
                                     </a>
                                 ))}
                             </div>
                         </div>
+                    </div>
 
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-600">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h2>
+                    {/* Transmit Form Block */}
+                    <div className="lg:col-span-3">
+                        <div className="bg-cyber-800 border border-gray-700 p-8 shadow-xl relative">
+                            {/* Decorative corners */}
+                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary-500"></div>
+                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary-500"></div>
+                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary-500"></div>
+                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary-500"></div>
+
+                            <h2 className="text-2xl font-bold text-gray-100 mb-6 flex items-center gap-2 uppercase tracking-wide">
+                                <span className="text-primary-500">{"//"}</span> Msg_Payload
+                            </h2>
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                                        Your Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                                        placeholder="Enter your name"
-                                    />
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label htmlFor="name" className="block text-xs font-bold text-primary-500 uppercase tracking-widest">
+                                            Entity_ID (Name) *
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full p-3 bg-cyber-900 border border-gray-600 focus:border-primary-500 text-gray-100 outline-none transition-colors transition-border duration-300 focus:shadow-[0_0_10px_rgba(0,212,255,0.3)] font-sans"
+                                            placeholder="Enter your designation"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" className="block text-xs font-bold text-primary-500 uppercase tracking-widest">
+                                            Return_Vector (Email) *
+                                        </label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full p-3 bg-cyber-900 border border-gray-600 focus:border-primary-500 text-gray-100 outline-none transition-colors transition-border duration-300 focus:shadow-[0_0_10px_rgba(0,212,255,0.3)] font-sans"
+                                            placeholder="Enter comms address"
+                                        />
+                                    </div>
                                 </div>
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                                        placeholder="Enter your email"
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                                        Subject
+                                <div className="space-y-2">
+                                    <label htmlFor="subject" className="block text-xs font-bold text-primary-500 uppercase tracking-widest">
+                                        Header (Subject) *
                                     </label>
                                     <input
                                         type="text"
@@ -200,13 +192,13 @@ const Contact = () => {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         required
-                                        className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                                        placeholder="Message subject"
+                                        className="w-full p-3 bg-cyber-900 border border-gray-600 focus:border-primary-500 text-gray-100 outline-none transition-colors transition-border duration-300 focus:shadow-[0_0_10px_rgba(0,212,255,0.3)] font-sans"
+                                        placeholder="Transmission parameters"
                                     />
                                 </div>
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                                        Message
+                                <div className="space-y-2">
+                                    <label htmlFor="message" className="block text-xs font-bold text-primary-500 uppercase tracking-widest">
+                                        Data (Message) *
                                     </label>
                                     <textarea
                                         id="message"
@@ -214,16 +206,16 @@ const Contact = () => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        rows="4"
-                                        className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                                        placeholder="Your message here..."
+                                        rows="5"
+                                        className="w-full p-3 bg-cyber-900 border border-gray-600 focus:border-primary-500 text-gray-100 outline-none resize-none transition-colors transition-border duration-300 focus:shadow-[0_0_10px_rgba(0,212,255,0.3)] font-sans"
+                                        placeholder="Encrypting payload... Begin typing."
                                     />
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full bg-primary-500 text-white py-3 px-6 rounded-lg hover:bg-primary-600 transition-colors font-semibold"
+                                    className="w-full bg-transparent border-2 border-primary-500 text-primary-500 py-4 font-bold uppercase tracking-widest hover:bg-primary-500 hover:text-cyber-900 transition-all hover:shadow-[0_0_15px_rgba(0,212,255,0.6)] cursor-pointer"
                                 >
-                                    Send Message
+                                    [ EXECUTE_TRANSMISSION ]
                                 </button>
                             </form>
                         </div>
@@ -231,7 +223,7 @@ const Contact = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Contact
+export default Contact;
