@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BiLogoGithub } from 'react-icons/bi';
 import { FaTerminal, FaShieldAlt, FaBug, FaDatabase, FaWindows } from 'react-icons/fa';
-import { SiKalilinux } from 'react-icons/si';
 
 const Projects = () => {
     const containerVariants = {

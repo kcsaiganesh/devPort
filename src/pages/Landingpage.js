@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { SiOwasp, SiWireshark, SiSplunk, SiKalilinux, SiPython } from 'react-icons/si';
-import { FaShieldAlt, FaLinkedin, FaGithub, FaEnvelope, FaHackerrank,  FaDownload, FaCertificate, FaTerminal, FaBug } from 'react-icons/fa';
+import { FaShieldAlt, FaLinkedin, FaGithub, FaEnvelope, FaDownload, FaCertificate, FaTerminal, FaBug } from 'react-icons/fa';
 import CyberSecuritySkills from '../components/CyberSecuritySkills';
 import ProfileImage from '../assets/saiGaneshProfile.jpg';
 
@@ -40,9 +40,9 @@ const Landingpage = () => {
                                 SOC Analyst L1
                             </h2>
                             <p className="text-lg text-gray-400 mb-8 max-w-xl leading-relaxed">
-                                > Executing SIEM Operations... [OK]<br/>
-                                > Initializing Incident Response... [OK]<br/>
-                                > Monitoring Threat Detection Vectors...<br/><br/>
+                                &gt; Executing SIEM Operations... [OK]<br/>
+                                &gt; Initializing Incident Response... [OK]<br/>
+                                &gt; Monitoring Threat Detection Vectors...<br/><br/>
                                 <span className="text-primary-300">"Defending networks, hunting threats, securing the perimeter."</span>
                             </p>
 
@@ -178,10 +178,10 @@ const Landingpage = () => {
                                 </div>
                                 <div className="text-gray-300 font-semibold mb-4">@ Xpereos Technology, Bengaluru</div>
                                 <ul className="text-sm text-gray-400 space-y-2 font-sans">
-                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">>&nbsp;</span><span>Continuously monitor 50+ endpoints using Wazuh SIEM; maintain alert queue and escalate incidents.</span></li>
-                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">>&nbsp;</span><span>Perform initial triage of 40+ security alerts daily across Windows/Linux logs.</span></li>
-                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">>&nbsp;</span><span>Deploy custom Wazuh rules targeting MITRE ATT&CK (T1078, T1053) & configured FIM.</span></li>
-                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">>&nbsp;</span><span>Conduct VAPT on internal web apps (OWASP Top 10); applied Windows hardening via GPO.</span></li>
+                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">&gt;&nbsp;</span><span>Continuously monitor 50+ endpoints using Wazuh SIEM; maintain alert queue and escalate incidents.</span></li>
+                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">&gt;&nbsp;</span><span>Perform initial triage of 40+ security alerts daily across Windows/Linux logs.</span></li>
+                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">&gt;&nbsp;</span><span>Deploy custom Wazuh rules targeting MITRE ATT&CK (T1078, T1053) & configured FIM.</span></li>
+                                    <li className="flex items-start gap-2"><span className="text-primary-500 mt-1">&gt;&nbsp;</span><span>Conduct VAPT on internal web apps (OWASP Top 10); applied Windows hardening via GPO.</span></li>
                                 </ul>
                             </div>
                         </motion.div>

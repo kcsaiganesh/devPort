@@ -5,7 +5,6 @@ import {
     FaTerminal,
     FaBug,
     FaSearch,
-    FaDatabase,
     FaEye,
     FaNetworkWired,
     FaLock,

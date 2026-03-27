@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaDownload, FaEye, FaUser, FaTerminal, FaShieldAlt, FaBriefcase, FaCertificate, FaLanguage, FaAward, FaCode, FaWindows } from 'react-icons/fa';
-import { SiKalilinux, SiPython } from 'react-icons/si';
+import { FaDownload, FaEye, FaUser, FaShieldAlt, FaBriefcase, FaCertificate, FaLanguage, FaAward, FaCode, FaWindows } from 'react-icons/fa';
+import { SiKalilinux } from 'react-icons/si';
 import Profile from '../assets/saiGaneshProfile.jpg';
 
 const Resume = () => {
